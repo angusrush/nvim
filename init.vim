@@ -1,9 +1,5 @@
 " General settings {{{
 
-" For the time being, still use the vim folders for everything
-"set runtimepath^=~/.vim runtimepath+=~/.vim/after
-"let &packpath = &runtimepath
-
 " Pathogen automatically loads plugins
 execute pathogen#infect()
 

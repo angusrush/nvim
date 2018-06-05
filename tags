@@ -84,6 +84,14 @@ ${1:subsection name	undo/%home%angus%Documents%latex%notes-public%category_theor
 <M-j>	init.vim	/^nnoremap <M-j> <C-w>j$/;"	m
 <M-k>	init.vim	/^nnoremap <M-k> <C-w>k$/;"	m
 <M-l>	init.vim	/^nnoremap <M-l> <C-w>l$/;"	m
+<Plug>(Exchange)	bundle/vim-exchange/plugin/exchange.vim	/^nnoremap <silent> <expr> <Plug>(Exchange) ':<C-u>set operatorfunc=<SID>exchange_set<CR>'.(v:count1 == 1 ? '' : v:count1).'g@'$/;"	m
+<Plug>(Exchange)	bundle/vim-exchange/plugin/exchange.vim	/^vnoremap <silent> <Plug>(Exchange) :<C-u>call <SID>exchange_set(visualmode(), 1)<CR>$/;"	m
+<Plug>(Exchange)	plugin/exchange.vim	/^nnoremap <silent> <expr> <Plug>(Exchange) ':<C-u>set operatorfunc=<SID>exchange_set<CR>'.(v:count1 == 1 ? '' : v:count1).'g@'$/;"	m
+<Plug>(Exchange)	plugin/exchange.vim	/^vnoremap <silent> <Plug>(Exchange) :<C-u>call <SID>exchange_set(visualmode(), 1)<CR>$/;"	m
+<Plug>(ExchangeClear)	bundle/vim-exchange/plugin/exchange.vim	/^nnoremap <silent> <Plug>(ExchangeClear) :<C-u>call <SID>exchange_clear()<CR>$/;"	m
+<Plug>(ExchangeClear)	plugin/exchange.vim	/^nnoremap <silent> <Plug>(ExchangeClear) :<C-u>call <SID>exchange_clear()<CR>$/;"	m
+<Plug>(ExchangeLine)	bundle/vim-exchange/plugin/exchange.vim	/^nnoremap <silent> <expr> <Plug>(ExchangeLine) ':<C-u>set operatorfunc=<SID>exchange_set<CR>'.(v:count1 == 1 ? '' : v:count1).'g@_'$/;"	m
+<Plug>(ExchangeLine)	plugin/exchange.vim	/^nnoremap <silent> <expr> <Plug>(ExchangeLine) ':<C-u>set operatorfunc=<SID>exchange_set<CR>'.(v:count1 == 1 ? '' : v:count1).'g@_'$/;"	m
 <Plug>(IndentWiseBlockScopeBoundaryBegin)	bundle/vim-indentwise/plugin/indentwise.vim	/^nnoremap <silent> <Plug>(IndentWiseBlockScopeBoundaryBegin)  :<C-U>call <SID>move_to_indent_block_scope_boundary(0, "n")<CR>$/;"	m
 <Plug>(IndentWiseBlockScopeBoundaryBegin)	bundle/vim-indentwise/plugin/indentwise.vim	/^onoremap <silent> <Plug>(IndentWiseBlockScopeBoundaryBegin) V:<C-U>call <SID>move_to_indent_block_scope_boundary(0, "o")<CR>$/;"	m
 <Plug>(IndentWiseBlockScopeBoundaryBegin)	bundle/vim-indentwise/plugin/indentwise.vim	/^vnoremap <silent> <Plug>(IndentWiseBlockScopeBoundaryBegin)       :call <SID>move_to_indent_block_scope_boundary(0, "v")<CR>$/;"	m
@@ -352,7 +360,6 @@ BRACES	bundle/UltiSnips/test/vim_interface.py	/^    BRACES = re.compile('([}{])'
 BS	bundle/UltiSnips/test/constant.py	/^BS = '\\x7f'$/;"	v
 Backspace_TabStop_NotZero	bundle/UltiSnips/test/test_Editing.py	/^class Backspace_TabStop_NotZero(_VimTest):$/;"	c
 Backspace_TabStop_Zero	bundle/UltiSnips/test/test_Editing.py	/^class Backspace_TabStop_Zero(_VimTest):$/;"	c
-BadInput	bundle/vertigo/plugin/vertigo.vim	/^function! s:BadInput(promptstr)$/;"	f
 BadInput	bundle/vim-vertigo/plugin/vertigo.vim	/^function! s:BadInput(promptstr)$/;"	f
 Basic definitions	undo/%home%angus%Documents%latex%notes-private%algebra%notes.tex	/^      Then/;"	t
 Basic definitions	undo/%home%angus%Documents%latex%notes-public%category_theory%notes.tex	/^\\maketitle/;"	t
@@ -470,18 +477,14 @@ DeleteCurrentTabStop3_JumpAround	bundle/UltiSnips/test/test_Editing.py	/^class D
 DeleteLastTwoLinesInSnippet	bundle/UltiSnips/test/test_Editing.py	/^class DeleteLastTwoLinesInSnippet(_VimTest):$/;"	c
 DeleteSnippetInsertion0	bundle/UltiSnips/test/test_Editing.py	/^class DeleteSnippetInsertion0(_VimTest):$/;"	c
 DeleteSnippetInsertion1	bundle/UltiSnips/test/test_Editing.py	/^class DeleteSnippetInsertion1(_VimTest):$/;"	c
-DigitType	bundle/vertigo/plugin/vertigo.vim	/^function! s:DigitType(usedshift, keypressed)$/;"	f
 DigitType	bundle/vim-vertigo/plugin/vertigo.vim	/^function! s:DigitType(usedshift, keypressed)$/;"	f
 DisablePostamble	bundle/ale/autoload/ale/toggle.vim	/^function! s:DisablePostamble() abort$/;"	f
 Do	bundle/vim-airline/autoload/airline/extensions/tabline/xtabline.vim	/^function! s:Do(action)$/;"	f
-DoAbsoluteJump	bundle/vertigo/plugin/vertigo.vim	/^function! s:DoAbsoluteJump(twodigit, msg, mode)$/;"	f
 DoAbsoluteJump	bundle/vim-vertigo/plugin/vertigo.vim	/^function! s:DoAbsoluteJump(twodigit, msg, mode)$/;"	f
-DoJump	bundle/vertigo/plugin/vertigo.vim	/^function! s:DoJump(lines, motion, msg, mode)$/;"	f
 DoJump	bundle/vim-vertigo/plugin/vertigo.vim	/^function! s:DoJump(lines, motion, msg, mode)$/;"	f
 DoNotCrashOnUndoAndJumpInNestedSnippet	bundle/UltiSnips/test/test_Editing.py	/^class DoNotCrashOnUndoAndJumpInNestedSnippet(_VimTest):$/;"	c
 DoNotExpandAfterSpace_ExpectCorrectResult	bundle/UltiSnips/test/test_Expand.py	/^class DoNotExpandAfterSpace_ExpectCorrectResult(_SimpleExpands):$/;"	c
 DoNotTrimSpacesAtEndOfLinesByDefault	bundle/UltiSnips/test/test_Chars.py	/^class DoNotTrimSpacesAtEndOfLinesByDefault(_VimTest):$/;"	c
-DoRelativeJump	bundle/vertigo/plugin/vertigo.vim	/^function! s:DoRelativeJump(lines, motion, msg, mode)$/;"	f
 DoRelativeJump	bundle/vim-vertigo/plugin/vertigo.vim	/^function! s:DoRelativeJump(lines, motion, msg, mode)$/;"	f
 DoneParseArgs	bundle/vim-gutentags/plat/win32/update_scopedb.cmd	/^:DoneParseArgs$/;"	l
 DoneParseArgs	bundle/vim-gutentags/plat/win32/update_tags.cmd	/^:DoneParseArgs$/;"	l
@@ -569,7 +572,6 @@ GatherOutput	bundle/ale/autoload/ale/engine.vim	/^function! s:GatherOutput(job_i
 GatherOutput	bundle/ale/autoload/ale/fix.vim	/^function! s:GatherOutput(job_id, line) abort$/;"	f
 General information	undo/%home%angus%Documents%latex%notes-private%recipes%cookbook.tex	/^\\maketitle/;"	s
 Get	bundle/vim-airline/autoload/airline/highlighter.vim	/^function! s:Get(dict, key, prefix)$/;"	f
-GetAbsJumpLineNumber	bundle/vertigo/plugin/vertigo.vim	/^function! s:GetAbsJumpLineNumber(twodigit)$/;"	f
 GetAbsJumpLineNumber	bundle/vim-vertigo/plugin/vertigo.vim	/^function! s:GetAbsJumpLineNumber(twodigit)$/;"	f
 GetAliasedFiletype	bundle/ale/autoload/ale/linter.vim	/^function! s:GetAliasedFiletype(original_filetype) abort$/;"	f
 GetBuildDirectory	bundle/ale/ale_linters/c/clangtidy.vim	/^function! s:GetBuildDirectory(buffer) abort$/;"	f
@@ -590,7 +592,6 @@ GetTeXIndent	indent/tex.vim	/^function GetTeXIndent()$/;"	f
 GetText	doc/db2vim/domutils.py	/^def GetText(nodelist):$/;"	f
 GetTextFromElement	doc/db2vim/domutils.py	/^def GetTextFromElement(element):$/;"	f
 GetTextFromElementNode	doc/db2vim/domutils.py	/^def GetTextFromElementNode(element, childNamePattern):$/;"	f
-GetUserInput	bundle/vertigo/plugin/vertigo.vim	/^function! s:GetUserInput(promptstr)$/;"	f
 GetUserInput	bundle/vim-vertigo/plugin/vertigo.vim	/^function! s:GetUserInput(promptstr)$/;"	f
 GetWorkingDirectory	bundle/ale/ale_linters/cs/mcsc.vim	/^function! s:GetWorkingDirectory(buffer) abort$/;"	f
 GoToLSPDefinition	bundle/ale/autoload/ale/definition.vim	/^function! s:GoToLSPDefinition(linter, options) abort$/;"	f
@@ -916,9 +917,7 @@ Product measures and the Riesz Representation Theorem	undo/%home%angus%Documents
 Products	undo/%home%angus%Documents%latex%notes-private%algebra%notes.tex	/^\\end{note}/;"	t
 Products	undo/%home%angus%Documents%latex%notes-private%algebra%notes.tex	/^ª/;"	t
 Products	undo/%home%angus%Documents%latex%notes-public%category_theory%notes.tex	/^\\end{note}/;"	t
-PromptAbsoluteJump	bundle/vertigo/plugin/vertigo.vim	/^function! s:PromptAbsoluteJump(mode)$/;"	f
 PromptAbsoluteJump	bundle/vim-vertigo/plugin/vertigo.vim	/^function! s:PromptAbsoluteJump(mode)$/;"	f
-PromptRelativeJump	bundle/vertigo/plugin/vertigo.vim	/^function! s:PromptRelativeJump(motion, direction, mode)$/;"	f
 PromptRelativeJump	bundle/vim-vertigo/plugin/vertigo.vim	/^function! s:PromptRelativeJump(motion, direction, mode)$/;"	f
 Proof of the Riesz lemma	undo/%home%angus%Documents%latex%notes-private%schuller_quantum%notes.tex	/^/;"	t
 Proof of the Riesz lemma	undo/%home%angus%Documents%latex%notes-private%schuller_quantum%notes.tex	/^/;"	t
@@ -1556,7 +1555,6 @@ UpdateModifiedSnippetWithoutCursorMove1	bundle/UltiSnips/test/test_Editing.py	/^
 UpdateModifiedSnippetWithoutCursorMove2	bundle/UltiSnips/test/test_Editing.py	/^class UpdateModifiedSnippetWithoutCursorMove2(_VimTest):$/;"	c
 Usage	bundle/vim-gutentags/plat/win32/update_scopedb.cmd	/^:Usage$/;"	l
 Usage	bundle/vim-gutentags/plat/win32/update_tags.cmd	/^:Usage$/;"	l
-UsingAbsoluteNumbering	bundle/vertigo/plugin/vertigo.vim	/^function! s:UsingAbsoluteNumbering()$/;"	f
 UsingAbsoluteNumbering	bundle/vim-vertigo/plugin/vertigo.vim	/^function! s:UsingAbsoluteNumbering()$/;"	f
 UsingModule	bundle/ale/ale_linters/python/flake8.vim	/^function! s:UsingModule(buffer) abort$/;"	f
 Util1	bundle/vim-airline/t/util.vim	/^function! Util1()$/;"	f
@@ -1574,11 +1572,8 @@ VerifyVimDict1	bundle/UltiSnips/test/test_UltiSnipFunc.py	/^class VerifyVimDict1
 VerifyVimDict2	bundle/UltiSnips/test/test_UltiSnipFunc.py	/^class VerifyVimDict2(_VimTest):$/;"	c
 VerifyVimDict3	bundle/UltiSnips/test/test_UltiSnipFunc.py	/^class VerifyVimDict3(_VimTest):$/;"	c
 VertCatString	doc/db2vim/textutils.py	/^def VertCatString(string1, width1, string2):$/;"	f
-Vertigo	bundle/vertigo/plugin/vertigo.vim	/^function! s:Vertigo(motion, direction, mode)$/;"	f
 Vertigo	bundle/vim-vertigo/plugin/vertigo.vim	/^function! s:Vertigo(motion, direction, mode)$/;"	f
-VertigoDown	bundle/vertigo/plugin/vertigo.vim	/^command! -nargs=1 VertigoDown call <SID>Vertigo('j', 'down', '<args>')$/;"	c
 VertigoDown	bundle/vim-vertigo/plugin/vertigo.vim	/^command! -nargs=1 VertigoDown call <SID>Vertigo('j', 'down', '<args>')$/;"	c
-VertigoUp	bundle/vertigo/plugin/vertigo.vim	/^command! -nargs=1 VertigoUp   call <SID>Vertigo('k', 'up',   '<args>')$/;"	c
 VertigoUp	bundle/vim-vertigo/plugin/vertigo.vim	/^command! -nargs=1 VertigoUp   call <SID>Vertigo('k', 'up',   '<args>')$/;"	c
 VimBuffer	bundle/UltiSnips/pythonx/UltiSnips/_vim.py	/^class VimBuffer(object):$/;"	c
 VimBufferProxy	bundle/UltiSnips/pythonx/UltiSnips/buffer_proxy.py	/^class VimBufferProxy(_vim.VimBuffer):$/;"	c
@@ -1646,6 +1641,14 @@ WQ	init.vim	/^command WQ wq$/;"	c
 What does this mean for classical field theory?	undo/%home%angus%Documents%latex%notes-private%what_is_DDWQ%main.tex	/^/;"	s
 What is this?	undo/%home%angus%Documents%latex%notes-private%algebra%notes.tex	/^\\maketitle/;"	s
 Wq	init.vim	/^command Wq wq$/;"	c
+XchangeClear	bundle/vim-exchange/plugin/exchange.vim	/^command! XchangeClear call s:exchange_clear()$/;"	c
+XchangeClear	plugin/exchange.vim	/^command! XchangeClear call s:exchange_clear()$/;"	c
+XchangeHighlightDisable	bundle/vim-exchange/plugin/exchange.vim	/^command! XchangeHighlightDisable call s:highlight_toggle(0)$/;"	c
+XchangeHighlightDisable	plugin/exchange.vim	/^command! XchangeHighlightDisable call s:highlight_toggle(0)$/;"	c
+XchangeHighlightEnable	bundle/vim-exchange/plugin/exchange.vim	/^command! XchangeHighlightEnable call s:highlight_toggle(1)$/;"	c
+XchangeHighlightEnable	plugin/exchange.vim	/^command! XchangeHighlightEnable call s:highlight_toggle(1)$/;"	c
+XchangeHighlightToggle	bundle/vim-exchange/plugin/exchange.vim	/^command! XchangeHighlightToggle call s:highlight_toggle()$/;"	c
+XchangeHighlightToggle	plugin/exchange.vim	/^command! XchangeHighlightToggle call s:highlight_toggle()$/;"	c
 Y	init.vim	/^map Y y\$$/;"	m
 Z	bundle/vim-sneak/plugin/sneak.vim	/^  omap Z <Plug>Sneak_S$/;"	m
 [%	bundle/vim-indentwise/plugin/indentwise.vim	/^        map [% <Plug>(IndentWiseBlockScopeBoundaryBegin)$/;"	m
@@ -2941,6 +2944,8 @@ ale_linters#yaml#yamllint#Handle	bundle/ale/ale_linters/yaml/yamllint.vim	/^func
 ale_refresh	bundle/vim-airline/autoload/airline/extensions/ale.vim	/^function! s:ale_refresh()$/;"	f
 all	doc/Makefile	/^all = $(projects) $(htmlfiles) $(cssfiles) $(txtfiles) $/;"	m
 append	bundle/UltiSnips/pythonx/UltiSnips/buffer_proxy.py	/^    def append(self, line, line_number=-1):$/;"	m	class:VimBufferProxy
+apply_type	bundle/vim-exchange/plugin/exchange.vim	/^function! s:apply_type(pos, type)$/;"	f
+apply_type	plugin/exchange.vim	/^function! s:apply_type(pos, type)$/;"	f
 args	bundle/UltiSnips/test/test_AnonymousExpansion.py	/^    args = '"simple $1 expand $1 $0"'$/;"	v	class:Anon_NoTrigger_Multi
 args	bundle/UltiSnips/test/test_AnonymousExpansion.py	/^    args = '"simple $1 expand $1 $0", "abc"'$/;"	v	class:Anon_Trigger_Multi
 args	bundle/UltiSnips/test/test_AnonymousExpansion.py	/^    args = '"simple expand"'$/;"	v	class:Anon_NoTrigger_AfterSpace
@@ -3087,7 +3092,11 @@ common_template.copy_files	bundle/vimtex/autoload/vimtex/view/common.vim	/^funct
 common_template.out	bundle/vimtex/autoload/vimtex/view/common.vim	/^function! s:common_template.out() dict " {{{1$/;"	f
 common_template.pprint_items	bundle/vimtex/autoload/vimtex/view/common.vim	/^function! s:common_template.pprint_items() abort dict " {{{1$/;"	f
 common_template.synctex	bundle/vimtex/autoload/vimtex/view/common.vim	/^function! s:common_template.synctex() dict " {{{1$/;"	f
+compare	bundle/vim-exchange/plugin/exchange.vim	/^function! s:compare(x, y)$/;"	f
+compare	plugin/exchange.vim	/^function! s:compare(x, y)$/;"	f
 compare_lines	bundle/vimtex/autoload/vimtex/format.vim	/^function! s:compare_lines(new, old) " {{{1$/;"	f
+compare_pos	bundle/vim-exchange/plugin/exchange.vim	/^function! s:compare_pos(x, y)$/;"	f
+compare_pos	plugin/exchange.vim	/^function! s:compare_pos(x, y)$/;"	f
 compensate_for_pum	bundle/UltiSnips/autoload/UltiSnips.vim	/^function! s:compensate_for_pum()$/;"	f
 compiler.build_cmd	bundle/vimtex/autoload/vimtex/compiler/arara.vim	/^function! s:compiler.build_cmd() abort dict " {{{1$/;"	f
 compiler.build_cmd	bundle/vimtex/autoload/vimtex/compiler/latexmk.vim	/^function! s:compiler.build_cmd() abort dict " {{{1$/;"	f
@@ -3194,7 +3203,9 @@ create_candidate	bundle/vimtex/autoload/unite/sources/vimtex_toc.vim	/^function!
 create_candidate	bundle/vimtex/rplugin/python3/denite/source/vimtex_labels.py	/^    def create_candidate(e):$/;"	m	class:Source
 create_candidate	bundle/vimtex/rplugin/python3/denite/source/vimtex_toc.py	/^    def create_candidate(e, depth):$/;"	m	class:Source
 create_directory	bundle/UltiSnips/test/vim_interface.py	/^def create_directory(dirname):$/;"	f
+create_map	bundle/vim-exchange/plugin/exchange.vim	/^function! s:create_map(mode, lhs, rhs)$/;"	f
 create_map	bundle/vimtex/autoload/vimtex/imaps.vim	/^function! s:create_map(map) " {{{1$/;"	f
+create_map	plugin/exchange.vim	/^function! s:create_map(mode, lhs, rhs)$/;"	f
 cs	bundle/vim-surround/plugin/surround.vim	/^  nmap cs  <Plug>Csurround$/;"	m
 cssfiles	doc/Makefile	/^cssfiles = $(addsuffix .css, $(projects))$/;"	m
 current_buffer	bundle/vim-airline/autoload/airline/extensions/tabline/buffers.vim	/^  let current_buffer = max([index(b.buffers, cur), 0])$/;"	v
@@ -3563,6 +3574,14 @@ escape	bundle/UltiSnips/pythonx/UltiSnips/text.py	/^def escape(text, chars):$/;"
 escaped	bundle/vim-vinegar/plugin/vinegar.vim	/^function! s:escaped(first, last) abort$/;"	f
 eval	bundle/UltiSnips/pythonx/UltiSnips/_vim.py	/^def eval(text):$/;"	f
 evaluate_tabline	bundle/vim-airline/autoload/airline/extensions/tabline/builder.vim	/^function! s:evaluate_tabline(tabline)$/;"	f
+exchange	bundle/vim-exchange/plugin/exchange.vim	/^function! s:exchange(x, y, reverse, expand)$/;"	f
+exchange	plugin/exchange.vim	/^function! s:exchange(x, y, reverse, expand)$/;"	f
+exchange_clear	bundle/vim-exchange/plugin/exchange.vim	/^function! s:exchange_clear()$/;"	f
+exchange_clear	plugin/exchange.vim	/^function! s:exchange_clear()$/;"	f
+exchange_get	bundle/vim-exchange/plugin/exchange.vim	/^function! s:exchange_get(type, vis)$/;"	f
+exchange_get	plugin/exchange.vim	/^function! s:exchange_get(type, vis)$/;"	f
+exchange_set	bundle/vim-exchange/plugin/exchange.vim	/^function! s:exchange_set(type, ...)$/;"	f
+exchange_set	plugin/exchange.vim	/^function! s:exchange_set(type, ...)$/;"	f
 exec_separator	bundle/vim-airline/autoload/airline/highlighter.vim	/^function! s:exec_separator(dict, from, to, inverse, suffix)$/;"	f
 expand	bundle/UltiSnips/pythonx/UltiSnips/snippet_manager.py	/^    def expand(self):$/;"	m	class:SnippetManager
 expand_anon	bundle/UltiSnips/pythonx/UltiSnips/snippet_manager.py	/^    def expand_anon($/;"	m	class:SnippetManager
@@ -3633,6 +3652,8 @@ find_closing	bundle/vimtex/autoload/vimtex/parser/toc.vim	/^function! s:find_clo
 find_parent_for_new_to	bundle/UltiSnips/pythonx/UltiSnips/text_objects/_base.py	/^    def find_parent_for_new_to(self, pos):$/;"	m	class:EditableTextObject
 find_snippet_files	bundle/UltiSnips/pythonx/UltiSnips/snippet/source/file/ulti_snips.py	/^def find_snippet_files(ft, directory):$/;"	f
 findfiles_recursive	bundle/vimtex/autoload/vimtex/state.vim	/^function! s:findfiles_recursive(expr, path) " {{{1$/;"	f
+fix_cursor	bundle/vim-exchange/plugin/exchange.vim	/^function! s:fix_cursor(x, y, reverse)$/;"	f
+fix_cursor	plugin/exchange.vim	/^function! s:fix_cursor(x, y, reverse)$/;"	f
 fix_sids	bundle/vimtex/autoload/vimtex/profile.vim	/^function! s:fix_sids() " {{{1$/;"	f
 fixindent	bundle/vim-surround/plugin/surround.vim	/^function! s:fixindent(str,spc)$/;"	f
 fixup	bundle/UltiSnips/utils/get_tm_snippets.py	/^    def fixup(m):$/;"	f	function:unescape
@@ -3705,7 +3726,6 @@ g:UltiSnipsListSnippets	bundle/UltiSnips/autoload/UltiSnips/map_keys.vim	/^    l
 g:UltiSnipsMappingsToIgnore	bundle/UltiSnips/autoload/UltiSnips/map_keys.vim	/^    let g:UltiSnipsMappingsToIgnore = []$/;"	v
 g:UltiSnipsRemoveSelectModeMappings	bundle/UltiSnips/autoload/UltiSnips/map_keys.vim	/^    let g:UltiSnipsRemoveSelectModeMappings = 1$/;"	v
 g:UltiSnipsSnippetDirectories	bundle/UltiSnips/autoload/UltiSnips/map_keys.vim	/^    let g:UltiSnipsSnippetDirectories = [ "UltiSnips" ]$/;"	v
-g:Vertigo_loaded	bundle/vertigo/plugin/vertigo.vim	/^let g:Vertigo_loaded = 1$/;"	v
 g:Vertigo_loaded	bundle/vim-vertigo/plugin/vertigo.vim	/^let g:Vertigo_loaded = 1$/;"	v
 g:_uspy	bundle/UltiSnips/plugin/UltiSnips.vim	/^       let g:_uspy=":py "$/;"	v
 g:_uspy	bundle/UltiSnips/plugin/UltiSnips.vim	/^       let g:_uspy=":python "$/;"	v
@@ -4103,6 +4123,8 @@ get_sections_positions	bundle/vimtex/autoload/vimtex/text_obj.vim	/^function! s:
 get_separator_change	bundle/vim-airline/autoload/airline/extensions/tabline/builder.vim	/^function! s:get_separator_change(new_group, old_group, end_group, sep_size, alt_sep_size)$/;"	f
 get_separator_change_with_end	bundle/vim-airline/autoload/airline/extensions/tabline/builder.vim	/^function! s:get_separator_change_with_end(new_group, old_group, new_end_group, old_end_group, sep_size, alt_sep_size)$/;"	f
 get_seperator	bundle/vim-airline/autoload/airline/builder.vim	/^function! s:get_seperator(self, prev_group, group, side)$/;"	f
+get_setting	bundle/vim-exchange/plugin/exchange.vim	/^function! s:get_setting(setting, default)$/;"	f
+get_setting	plugin/exchange.vim	/^function! s:get_setting(setting, default)$/;"	f
 get_snippets	bundle/UltiSnips/pythonx/UltiSnips/snippet/source/_base.py	/^    def get_snippets(self, filetypes, before, possible, autotrigger_only,$/;"	m	class:SnippetSource
 get_syn	bundle/vim-airline/autoload/airline/highlighter.vim	/^function! s:get_syn(group, what)$/;"	f
 get_tabstops	bundle/UltiSnips/pythonx/UltiSnips/text_objects/_snippet_instance.py	/^    def get_tabstops(self):$/;"	m	class:SnippetInstance
@@ -4112,6 +4134,8 @@ get_transitioned_seperator	bundle/vim-airline/autoload/airline/builder.vim	/^fun
 get_vim_info	bundle/vimtex/autoload/vimtex/info.vim	/^function! s:get_vim_info() abort " {{{1$/;"	f
 getchar	bundle/vim-surround/plugin/surround.vim	/^function! s:getchar()$/;"	f
 getnchars	bundle/vim-sneak/plugin/sneak.vim	/^func! s:getnchars(n, mode) abort$/;"	f
+getpos	bundle/vim-exchange/plugin/exchange.vim	/^function! s:getpos(mark)$/;"	f
+getpos	plugin/exchange.vim	/^function! s:getpos(mark)$/;"	f
 gf	init.vim	/^nnoremap gf <C-W>f$/;"	m
 gf	init.vim	/^vnoremap gf <C-W>f$/;"	m
 gj	ftplugin/tex.vim	/^nnoremap gj j$/;"	m
@@ -4171,6 +4195,14 @@ has_version	bundle/UltiSnips/test/vim_interface.py	/^    def has_version(self, m
 head_tail	bundle/UltiSnips/pythonx/UltiSnips/text.py	/^def head_tail(line):$/;"	f
 health#vimtex#check	bundle/vimtex/autoload/health/vimtex.vim	/^function! health#vimtex#check() abort$/;"	f
 hi	bundle/nord-vim/colors/nord.vim	/^function! s:hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)$/;"	f
+highlight	bundle/vim-exchange/plugin/exchange.vim	/^function! s:highlight(exchange)$/;"	f
+highlight	plugin/exchange.vim	/^function! s:highlight(exchange)$/;"	f
+highlight_clear	bundle/vim-exchange/plugin/exchange.vim	/^function! s:highlight_clear(match)$/;"	f
+highlight_clear	plugin/exchange.vim	/^function! s:highlight_clear(match)$/;"	f
+highlight_region	bundle/vim-exchange/plugin/exchange.vim	/^function! s:highlight_region(region)$/;"	f
+highlight_region	plugin/exchange.vim	/^function! s:highlight_region(region)$/;"	f
+highlight_toggle	bundle/vim-exchange/plugin/exchange.vim	/^function! s:highlight_toggle(...)$/;"	f
+highlight_toggle	plugin/exchange.vim	/^function! s:highlight_toggle(...)$/;"	f
 hl	bundle/vim-airline/t/highlighter.vim	/^    let hl = airline#highlighter#get_highlight('Foo1_to_Foo2')$/;"	v
 hl	bundle/vim-airline/t/themes.vim	/^    let hl = airline#themes#get_highlight('Foo', 'bold', 'italic')$/;"	v
 hl	bundle/vim-airline/t/themes.vim	/^    let hl = airline#themes#get_highlight2(['Foo','bg'], ['Foo','fg'], 'italic', 'bold')$/;"	v
@@ -4234,6 +4266,8 @@ instantiate	bundle/UltiSnips/pythonx/UltiSnips/snippet/definition/_base.py	/^   
 instantiate	bundle/UltiSnips/pythonx/UltiSnips/snippet/definition/snipmate.py	/^    def instantiate(self, snippet_instance, initial_text, indent):$/;"	m	class:SnipMateSnippetDefinition
 instantiate	bundle/UltiSnips/pythonx/UltiSnips/snippet/definition/ulti_snips.py	/^    def instantiate(self, snippet_instance, initial_text, indent):$/;"	m	class:UltiSnipsSnippetDefinition
 int_to_roman	bundle/vimtex/autoload/vimtex/toc.vim	/^function! s:int_to_roman(number) " {{{1$/;"	f
+intersects	bundle/vim-exchange/plugin/exchange.vim	/^function! s:intersects(x, y)$/;"	f
+intersects	plugin/exchange.vim	/^function! s:intersects(x, y)$/;"	f
 invoke_funcrefs	bundle/vim-airline/autoload/airline.vim	/^function! s:invoke_funcrefs(context, funcrefs)$/;"	f
 is_branch_empty	bundle/vim-airline/autoload/airline/extensions/hunks.vim	/^function! s:is_branch_empty()$/;"	f
 is_buffer_changed_outside	bundle/UltiSnips/pythonx/UltiSnips/buffer_proxy.py	/^    def is_buffer_changed_outside(self):$/;"	m	class:VimBufferProxy
@@ -5085,7 +5119,9 @@ redraw	bundle/vim-surround/plugin/surround.vim	/^function! s:redraw()$/;"	f
 refresh	bundle/UltiSnips/pythonx/UltiSnips/snippet/source/_base.py	/^    def refresh(self):$/;"	m	class:SnippetSource
 refresh	bundle/UltiSnips/pythonx/UltiSnips/snippet/source/file/_base.py	/^    def refresh(self):$/;"	m	class:SnippetFileSource
 register_snippet_source	bundle/UltiSnips/pythonx/UltiSnips/snippet_manager.py	/^    def register_snippet_source(self, name, snippet_source):$/;"	m	class:SnippetManager
+reindent	bundle/vim-exchange/plugin/exchange.vim	/^function! s:reindent(start, lines, new_indent)$/;"	f
 reindent	bundle/vim-surround/plugin/surround.vim	/^function! s:reindent() " {{{1$/;"	f
+reindent	plugin/exchange.vim	/^function! s:reindent(start, lines, new_indent)$/;"	f
 relatives	bundle/vim-vinegar/plugin/vinegar.vim	/^function! s:relatives(first, ...) abort$/;"	f
 remember_buffer	bundle/UltiSnips/pythonx/UltiSnips/vim_state.py	/^    def remember_buffer(self, to):$/;"	m	class:VimState
 remember_position	bundle/UltiSnips/pythonx/UltiSnips/vim_state.py	/^    def remember_position(self):$/;"	m	class:VimState
@@ -5107,6 +5143,8 @@ reset_indent	bundle/UltiSnips/pythonx/UltiSnips/text_objects/_python_code.py	/^ 
 reset_untracked_cache	bundle/vim-airline/autoload/airline/extensions/branch.vim	/^function! s:reset_untracked_cache(shellcmdpost)$/;"	f
 resolve_ambiguity	bundle/UltiSnips/pythonx/UltiSnips/snippet/parsing/_base.py	/^def resolve_ambiguity(all_tokens, seen_ts):$/;"	f
 restore_conceal_in_other_windows	bundle/vim-sneak/autoload/sneak/label.vim	/^func! s:restore_conceal_in_other_windows() abort$/;"	f
+restore_reg	bundle/vim-exchange/plugin/exchange.vim	/^function! s:restore_reg(name, reg)$/;"	f
+restore_reg	plugin/exchange.vim	/^function! s:restore_reg(name, reg)$/;"	f
 restore_unnamed_register	bundle/UltiSnips/pythonx/UltiSnips/vim_state.py	/^    def restore_unnamed_register(self):$/;"	m	class:VimState
 rpt	bundle/vim-sneak/plugin/sneak.vim	/^func! s:rpt(op, reverse) abort$/;"	f
 runTest	bundle/UltiSnips/pythonx/UltiSnips/test_diff.py	/^    def runTest(self):$/;"	m	class:_Base
@@ -5305,6 +5343,8 @@ s:deprecation_warning_echoed	bundle/ale/ale_linters/python/flake8.vim	/^let s:de
 s:did_check_exe	bundle/vim-gutentags/autoload/gutentags/ctags.vim	/^let s:did_check_exe = 0$/;"	v
 s:done_bundles	autoload/pathogen.vim	/^let s:done_bundles = {}$/;"	v
 s:dotfiles	bundle/vim-vinegar/plugin/vinegar.vim	/^let s:dotfiles = '\\(^\\|\\s\\s\\)\\zs\\.\\S\\+'$/;"	v
+s:enable_highlighting	bundle/vim-exchange/plugin/exchange.vim	/^let s:enable_highlighting = 1$/;"	v
+s:enable_highlighting	plugin/exchange.vim	/^let s:enable_highlighting = 1$/;"	v
 s:enable_neovim	bundle/ale/ale_linters/vim/vint.vim	/^let s:enable_neovim = has('nvim') ? ' --enable-neovim' : ''$/;"	v
 s:enabled	bundle/vim-airline/autoload/airline/extensions/localsearch.vim	/^let s:enabled = get(g:, 'airline#extensions#localsearch#enabled', 1)$/;"	v
 s:enabled	bundle/vim-airline/autoload/airline/extensions/whitespace.vim	/^let s:enabled = get(g:, 'airline#extensions#whitespace#enabled', 1)$/;"	v
@@ -5353,17 +5393,11 @@ s:group_name	bundle/vimtex/after/syntax/tex.vim	/^  let s:group_name = 'texZoneM
 s:has_features	bundle/ale/plugin/ale.vim	/^    let s:has_features = has('timers') && exists('*job_start') && exists('*ch_close_in')$/;"	v
 s:has_features	bundle/ale/plugin/ale.vim	/^    let s:has_features = has('timers')$/;"	v
 s:head_format	bundle/vim-airline/autoload/airline/extensions/branch.vim	/^let s:head_format = get(g:, 'airline#extensions#branch#format', 0)$/;"	v
-s:helpmsg	bundle/vertigo/plugin/vertigo.vim	/^let s:helpmsg = '(<Esc> or CTRL-C to cancel)'$/;"	v
 s:helpmsg	bundle/vim-vertigo/plugin/vertigo.vim	/^let s:helpmsg = '(<Esc> or CTRL-C to cancel)'$/;"	v
 s:highlight_groups	bundle/vim-airline/autoload/airline/extensions/tabline/ctrlspace.vim	/^let s:highlight_groups = ['hid', 0, '', 'sel', 'mod_unsel', 0, 'mod_unsel', 'mod']$/;"	v
 s:hl_groups	bundle/vim-airline/autoload/airline/highlighter.vim	/^let s:hl_groups = {}$/;"	v
-s:homerow	bundle/vertigo/plugin/vertigo.vim	/^  let s:homerow = 'asdfghjkl;'$/;"	v
-s:homerow	bundle/vertigo/plugin/vertigo.vim	/^  let s:homerow = g:Vertigo_homerow$/;"	v
 s:homerow	bundle/vim-vertigo/plugin/vertigo.vim	/^  let s:homerow = 'asdfghjkl;'$/;"	v
 s:homerow	bundle/vim-vertigo/plugin/vertigo.vim	/^  let s:homerow = g:Vertigo_homerow$/;"	v
-s:homerow_onedigit	bundle/vertigo/plugin/vertigo.vim	/^    let s:homerow_onedigit = 'ASDFGHJKL:'$/;"	v
-s:homerow_onedigit	bundle/vertigo/plugin/vertigo.vim	/^    let s:homerow_onedigit = toupper(s:homerow)$/;"	v
-s:homerow_onedigit	bundle/vertigo/plugin/vertigo.vim	/^  let s:homerow_onedigit = g:Vertigo_homerow_onedigit$/;"	v
 s:homerow_onedigit	bundle/vim-vertigo/plugin/vertigo.vim	/^    let s:homerow_onedigit = 'ASDFGHJKL:'$/;"	v
 s:homerow_onedigit	bundle/vim-vertigo/plugin/vertigo.vim	/^    let s:homerow_onedigit = toupper(s:homerow)$/;"	v
 s:homerow_onedigit	bundle/vim-vertigo/plugin/vertigo.vim	/^  let s:homerow_onedigit = g:Vertigo_homerow_onedigit$/;"	v
@@ -5394,12 +5428,8 @@ s:job_info_map	bundle/ale/autoload/ale/engine.vim	/^    let s:job_info_map = {}$
 s:job_info_map	bundle/ale/autoload/ale/fix.vim	/^    let s:job_info_map = {}$/;"	v
 s:job_kill_timers	bundle/ale/autoload/ale/job.vim	/^    let s:job_kill_timers = {}$/;"	v
 s:job_map	bundle/ale/autoload/ale/job.vim	/^    let s:job_map = {}$/;"	v
-s:keymap	bundle/vertigo/plugin/vertigo.vim	/^  let s:keymap[s:homerow[i]] = (i+1)%10$/;"	v
-s:keymap	bundle/vertigo/plugin/vertigo.vim	/^let s:keymap = {}$/;"	v
 s:keymap	bundle/vim-vertigo/plugin/vertigo.vim	/^  let s:keymap[s:homerow[i]] = (i+1)%10$/;"	v
 s:keymap	bundle/vim-vertigo/plugin/vertigo.vim	/^let s:keymap = {}$/;"	v
-s:keymap_onedigit	bundle/vertigo/plugin/vertigo.vim	/^  let s:keymap_onedigit[s:homerow_onedigit[i]] = (i+1)%10$/;"	v
-s:keymap_onedigit	bundle/vertigo/plugin/vertigo.vim	/^let s:keymap_onedigit = {}$/;"	v
 s:keymap_onedigit	bundle/vim-vertigo/plugin/vertigo.vim	/^  let s:keymap_onedigit[s:homerow_onedigit[i]] = (i+1)%10$/;"	v
 s:keymap_onedigit	bundle/vim-vertigo/plugin/vertigo.vim	/^let s:keymap_onedigit = {}$/;"	v
 s:known_files	bundle/vim-gutentags/autoload/gutentags.vim	/^let s:known_files = []$/;"	v
@@ -5533,8 +5563,6 @@ s:nord_vim_version	bundle/nord-vim/colors/nord.vim	/^let s:nord_vim_version="0.8
 s:number_map	bundle/vim-airline/autoload/airline/extensions/tabline/buffers.vim	/^let s:number_map = &encoding == 'utf-8'$/;"	v
 s:number_map	bundle/vim-airline/autoload/airline/extensions/tabline/buffers.vim	/^let s:number_map = {$/;"	v
 s:omni_start_map	bundle/ale/autoload/ale/completion.vim	/^let s:omni_start_map = {$/;"	v
-s:onedigit_method	bundle/vertigo/plugin/vertigo.vim	/^  let s:onedigit_method = 'forcetwo'$/;"	v
-s:onedigit_method	bundle/vertigo/plugin/vertigo.vim	/^  let s:onedigit_method = g:Vertigo_onedigit_method$/;"	v
 s:onedigit_method	bundle/vim-vertigo/plugin/vertigo.vim	/^  let s:onedigit_method = 'forcetwo'$/;"	v
 s:onedigit_method	bundle/vim-vertigo/plugin/vertigo.vim	/^  let s:onedigit_method = g:Vertigo_onedigit_method$/;"	v
 s:overwrite	bundle/vim-airline/autoload/airline/extensions/bufferline.vim	/^let s:overwrite = get(g:, 'airline#extensions#bufferline#overwrite_variables', 1)$/;"	v
@@ -5707,6 +5735,8 @@ s:xterm_escape_template	bundle/vim-airline/autoload/airline/extensions/cursormod
 s:xwin_template	bundle/vimtex/autoload/vimtex/view/common.vim	/^let s:xwin_template = {}$/;"	v
 s:zathura	bundle/vimtex/autoload/vimtex/view/zathura.vim	/^let s:zathura = {$/;"	v
 save_mark	bundle/UltiSnips/pythonx/UltiSnips/_vim.py	/^def save_mark(name):$/;"	f
+save_reg	bundle/vim-exchange/plugin/exchange.vim	/^function! s:save_reg(name)$/;"	f
+save_reg	plugin/exchange.vim	/^function! s:save_reg(name)$/;"	f
 scratch.close	bundle/vimtex/autoload/vimtex/scratch.vim	/^function! s:scratch.close() abort dict " {{{1$/;"	f
 scratch.fill	bundle/vimtex/autoload/vimtex/scratch.vim	/^function! s:scratch.fill() abort dict " {{{1$/;"	f
 scratch.open	bundle/vimtex/autoload/vimtex/scratch.vim	/^function! s:scratch.open() abort dict " {{{1$/;"	f
@@ -5803,6 +5833,8 @@ setUp	bundle/UltiSnips/test/vim_test_case.py	/^    def setUp(self):$/;"	m	class:
 set_cursor_color_for	bundle/vim-airline/autoload/airline/extensions/cursormode.vim	/^function! s:set_cursor_color_for(mode)$/;"	f
 set_cursor_from_pos	bundle/UltiSnips/pythonx/UltiSnips/_vim.py	/^def set_cursor_from_pos(pos):$/;"	f
 set_mark_from_pos	bundle/UltiSnips/pythonx/UltiSnips/_vim.py	/^def set_mark_from_pos(name, pos):$/;"	f
+setpos	bundle/vim-exchange/plugin/exchange.vim	/^function! s:setpos(mark, pos)$/;"	f
+setpos	plugin/exchange.vim	/^function! s:setpos(mark, pos)$/;"	f
 setup_other_plugins	bundle/UltiSnips/test_all.py	/^def setup_other_plugins(all_plugins):$/;"	f
 setup_paste	bundle/vim-unimpaired/plugin/unimpaired.vim	/^function! s:setup_paste() abort$/;"	f
 setup_vinegar	bundle/vim-vinegar/plugin/vinegar.vim	/^function! s:setup_vinegar() abort$/;"	f
@@ -6261,6 +6293,8 @@ steps	bundle/UltiSnips/pythonx/UltiSnips/test_position.py	/^    steps = ($/;"	v	
 steps	bundle/UltiSnips/pythonx/UltiSnips/test_position.py	/^    steps = ($/;"	v	class:MovePosition_InsSameLine2
 stl	bundle/vim-airline/t/builder.vim	/^    let stl = s:builder.build()$/;"	v
 stl	bundle/vim-airline/t/extensions_default.vim	/^    let stl = s:builder.build()$/;"	v
+store_pos	bundle/vim-exchange/plugin/exchange.vim	/^function! s:store_pos(start, end)$/;"	f
+store_pos	plugin/exchange.vim	/^function! s:store_pos(start, end)$/;"	f
 string_decode	bundle/vim-unimpaired/plugin/unimpaired.vim	/^function! s:string_decode(str) abort$/;"	f
 string_encode	bundle/vim-unimpaired/plugin/unimpaired.vim	/^function! s:string_encode(str) abort$/;"	f
 sub	bundle/vimtex/test/examples/book-multifile/appendix.tex	/^\\subsection{sub}$/;"	t
