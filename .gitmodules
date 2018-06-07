@@ -4,9 +4,6 @@
 [submodule "bundle/i3-vim-syntax"]
 	path = bundle/i3-vim-syntax
 	url = https://github.com/PotatoesMaster/i3-vim-syntax
-[submodule "bundle/nord-vim"]
-	path = bundle/nord-vim
-	url = https://github.com/arcticicestudio/nord-vim
 [submodule "bundle/UltiSnips"]
 	path = bundle/UltiSnips
 	url = https://github.com/sirver/UltiSnips
@@ -46,3 +43,6 @@
 [submodule "bundle/vim-indentwise"]
 	path = bundle/vim-indentwise
 	url = https://github.com/jeetsukumaran/vim-indentwise
+[submodule "bundle/nord-vim"]
+	path = bundle/nord-vim
+	url = https://github.com/angusrush/nord-vim
