@@ -1,1 +1,1 @@
-/home/angus/Dropbox/rc/Haskell.vim
+/home/angus/rc/Haskell.vim

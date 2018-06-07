@@ -1,1 +1,1 @@
-/home/angus/Dropbox/rc/tex.vim
+/home/angus/rc/tex.vim
