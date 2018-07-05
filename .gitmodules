@@ -49,3 +49,9 @@
 [submodule "bundle/vim-dispatch"]
 	path = bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch/
+[submodule "ftplugin/vim-dispatch-neovim"]
+	path = ftplugin/vim-dispatch-neovim
+	url = https://github.com/radenling/vim-dispatch-neovim
+[submodule "bundle/vim-dispatch-neovim"]
+	path = bundle/vim-dispatch-neovim
+	url = https://github.com/radenling/vim-dispatch-neovim
