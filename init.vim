@@ -1,7 +1,11 @@
-" General settings {{{
+" Gneral settings {{{
 
 " Pathogen automatically loads plugins
 execute pathogen#infect()
+
+" Use <Space> as leader
+nnoremap <Space> <NOP>
+let mapleader = "\<Space>"
 
 " I like this colorscheme
 set termguicolors
@@ -139,6 +143,13 @@ let g:ale_linters = {
 
 " }}}
 
+" {{{ easymotion
+
+map  s <Plug>(easymotion-s2)
+nmap S <Plug>(easymotion-t2)
+
+" }}}
+
 " indentwise {{{
 
 " set up indentwise shortcuts
@@ -162,16 +173,16 @@ nnoremap <leader>u :UndotreeToggle<cr>
 
 " }}}
 
-" vertigo {{{
+" vertigo (currently disabled) {{{
 
 " get vertigo working
 
-nnoremap <silent><Space>j :<C-U>VertigoDown n<CR>
-vnoremap <silent><Space>j :<C-U>VertigoDown v<CR>
-onoremap <silent><Space>j :<C-U>VertigoDown o<CR>
-nnoremap <silent><Space>k :<C-U>VertigoUp n<CR>
-vnoremap <silent><Space>k :<C-U>VertigoUp v<CR>
-onoremap <silent><Space>k :<C-U>VertigoUp o<CR>
+"nnoremap <silent><Space>j :<C-U>VertigoDown n<CR>
+"vnoremap <silent><Space>j :<C-U>VertigoDown v<CR>
+"onoremap <silent><Space>j :<C-U>VertigoDown o<CR>
+"nnoremap <silent><Space>k :<C-U>VertigoUp n<CR>
+"vnoremap <silent><Space>k :<C-U>VertigoUp v<CR>
+"onoremap <silent><Space>k :<C-U>VertigoUp o<CR>
 
 " }}}
 
