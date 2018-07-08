@@ -1,4 +1,4 @@
-" Gneral settings {{{
+" General settings {{{
 
 " Pathogen automatically loads plugins
 execute pathogen#infect()
@@ -145,8 +145,8 @@ let g:ale_linters = {
 
 " {{{ easymotion
 
-map  s <Plug>(easymotion-s2)
-nmap S <Plug>(easymotion-t2)
+nmap <S-s> <Plug>(easymotion-s2)
+nmap s <Plug>(easymotion-s)
 
 " }}}
 
