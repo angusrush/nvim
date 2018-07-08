@@ -145,8 +145,8 @@ let g:ale_linters = {
 
 " {{{ easymotion
 
-nmap <S-s> <Plug>(easymotion-s2)
-nmap s <Plug>(easymotion-s)
+nmap s <Plug>(easymotion-w)
+nmap <S-s> <Plug>(easymotion-b)
 
 " }}}
 
