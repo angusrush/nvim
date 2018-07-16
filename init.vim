@@ -91,9 +91,9 @@ noremap <silent> <expr> j (v:count? 'j' : 'gj')
 noremap <silent> <expr> k (v:count? 'k' : 'gk')
 
 " Set path and wildignore for easy file opening using :find
- set path=~/rc,~/latex/**
- set wildignore+=*.aux,*.fdb_latexmk,*.fls,*.log,*.out,*.synctex.gz,*.pdf,tags,*.bcf,*.bbl,*.blg*,*.toc,*.run.xml,core,*.dvi,*.orig,*.tkzparfct.gnuplot,*.png,*.jpg,*_region_*
- set wildignorecase
+set path=~/rc,~/latex/**
+set wildignore+=*.aux,*.fdb_latexmk,*.fls,*.log,*.out,*.synctex.gz,*.pdf,tags,*.bcf,*.bbl,*.blg*,*.toc,*.run.xml,core,*.dvi,*.orig,*.tkzparfct.gnuplot,*.png,*.jpg,*_region_*
+set wildignorecase
 
 " Leader map for :find
 nnoremap <leader>f :find *
@@ -106,15 +106,6 @@ nnoremap <leader>f :find *
 " corresponding extension.
 filetype plugin indent on
 
-" {{{ ack.vim
-
-" Use ag instead, which is better
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-" }}}
-
 " {{{ airline
 
 " Use powerline symbols
@@ -124,13 +115,14 @@ let g:airline_powerline_fonts = 1
 
 " {{{ ale
 
+"Disabled by default. Toggle with :ALEToggle
+let g:ale_enabled=0
+
 " map keys to use wrapping.
 nnoremap <silent><Leader>ap :ALEPrevious<CR>
 nnoremap <silent><Leader>an :ALENext<CR>
 
-"Disabled by default. Toggle with :ALEToggle
-let g:ale_enabled=0
-
+" Default warning sign is slightly pretty
 let g:ale_sign_warning="⚠"
 
 " only lint when file is saved. Prevents ridiculous slowdown.
@@ -142,12 +134,31 @@ let g:ale_linters = {
       \}
 
 " }}}
+"
+" {{{ sneak
 
-" {{{ easymotion
+" 1-character enhanced 'f'
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+" visual-mode
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+" operator-pending-mode
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
 
-nmap s <Plug>(easymotion-w)
-nmap <S-s> <Plug>(easymotion-b)
+" 1-character enhanced 't'
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+" visual-mode
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+" operator-pending-mode
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
 
+" change highlight to something less hideous
+autocmd ColorScheme * hi! link Sneak Search
 " }}}
 
 " indentwise {{{
@@ -166,23 +177,16 @@ map ]% <Plug>(IndentWiseBlockScopeBoundaryEnd)
 
 " }}}
 
-" UndoTree {{{
-
-" Toggle the undo tree
-nnoremap <leader>u :UndotreeToggle<cr>
-
-" }}}
-
-" vertigo (currently disabled) {{{
+" vertigo {{{
 
 " get vertigo working
 
-"nnoremap <silent><Space>j :<C-U>VertigoDown n<CR>
-"vnoremap <silent><Space>j :<C-U>VertigoDown v<CR>
-"onoremap <silent><Space>j :<C-U>VertigoDown o<CR>
-"nnoremap <silent><Space>k :<C-U>VertigoUp n<CR>
-"vnoremap <silent><Space>k :<C-U>VertigoUp v<CR>
-"onoremap <silent><Space>k :<C-U>VertigoUp o<CR>
+nnoremap <silent><leader>j :<C-U>VertigoDown n<CR>
+vnoremap <silent><leader>j :<C-U>VertigoDown v<CR>
+onoremap <silent><leader>j :<C-U>VertigoDown o<CR>
+nnoremap <silent><leader>k :<C-U>VertigoUp n<CR>
+vnoremap <silent><leader>k :<C-U>VertigoUp v<CR>
+onoremap <silent><leader>k :<C-U>VertigoUp o<CR>
 
 " }}}
 
