@@ -98,6 +98,15 @@ set wildignorecase
 " Leader map for :find
 nnoremap <leader>f :find *
 
+" print highlight group under cursor
+nmap <leader>sp :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 " }}}
 
 " Plugin stuff {{{
