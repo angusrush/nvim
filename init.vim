@@ -143,7 +143,7 @@ let g:ale_linters = {
       \}
 
 " }}}
-"
+
 " {{{ sneak
 
 " 1-character enhanced 'f'
@@ -168,6 +168,13 @@ omap T <Plug>Sneak_T
 
 " change highlight to something less hideous
 autocmd ColorScheme * hi! link Sneak Search
+" }}}
+
+" 
+" {{{ ultisnips
+
+nnoremap <leader>ue :UltiSnipsEdit<CR>
+
 " }}}
 
 " indentwise {{{
