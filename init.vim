@@ -8,7 +8,6 @@ nnoremap <Space> <NOP>
 let mapleader = "\<Space>"
 
 " I like this colorscheme
-set termguicolors
 let g:nord_comment_brightness = 15
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
