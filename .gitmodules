@@ -49,3 +49,6 @@
 [submodule "bundle/vim-dispatch-neovim"]
 	path = bundle/vim-dispatch-neovim
 	url = https://github.com/radenling/vim-dispatch-neovim
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
