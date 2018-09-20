@@ -14,6 +14,12 @@ let g:nord_italic = 1
 let g:nord_italic_comments = 1
 colorscheme nord
 
+" Trying out no statusline
+set noshowmode
+set noruler
+set laststatus=0
+set noshowcmd
+
 " I can't envision a use case for ex mode
 nnoremap Q <nop>
 
