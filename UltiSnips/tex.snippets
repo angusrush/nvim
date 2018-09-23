@@ -6,25 +6,25 @@ endsnippet
 
 snippet cha "Chapter" b
 \chapter{${1:chapter name}}
-  \label{ch:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+label{ch:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 $0
 endsnippet
 
 snippet sec "Section" b
 \section{${1:section name}}
-  \label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 $0
 endsnippet
 
 snippet ssc "Subsection" b
 \subsection{${1:subsection name}}
-  \label{ssc:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+\label{ssc:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 $0
 endsnippet
 
 snippet sss "Subsubsection" b
 \subsection{${1:subsection name}}
-  \label{ssc:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+\label{ssc:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 $0
 endsnippet
 
@@ -236,7 +236,7 @@ snippet ci "circ"
 \circ
 endsnippet
 
-snippet tim "times"
+snippet ti "times"
 \times
 endsnippet
 
@@ -288,7 +288,7 @@ snippet __ "inline underscore" iA
 _{${VISUAL}$1}
 endsnippet
 
-snippet ti "\tilde{}" i
+snippet til "\tilde{}" i
 \tilde{${VISUAL}$1}
 endsnippet
 
@@ -362,6 +362,30 @@ endsnippet
 
 snippet qq "qquad" i
 \qquad
+endsnippet
+
+snippet sb "subset" i
+\subset
+endsnippet
+
+snippet sp "supset" i
+\supset
+endsnippet
+
+snippet cu "supset" i
+\cup
+endsnippet
+
+snippet ca "supset" i
+\cap
+endsnippet
+
+snippet bu "big union (cup)" i
+\bigcup
+endsnippet
+
+snippet bi "big intersection (cap)" i
+\bigcap
 endsnippet
 
 # Text mode shortcuts
