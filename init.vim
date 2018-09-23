@@ -176,7 +176,12 @@ omap T <Plug>Sneak_T
 autocmd ColorScheme * hi! link Sneak Search
 " }}}
 
-" 
+" {{{ gutentags
+
+let g:gutentags_exclude_project_root=["~/.config/nvim"]
+
+" }}}
+ 
 " {{{ ultisnips
 
 nnoremap <leader>ue :UltiSnipsEdit<CR>
