@@ -6,7 +6,7 @@ endsnippet
 
 snippet cha "Chapter" b
 \chapter{${1:chapter name}}
-label{ch:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+\label{ch:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 $0
 endsnippet
 
@@ -402,8 +402,14 @@ snippet lab "label" i
 \label{$1}
 endsnippet
 
-snippet it "item" i
-\item `!v execute("normal =j")`
+global !p
+def fix_indent(snip):
+    vim.eval('feedkeys("\<c-f>")')
+endglobal
+
+post_expand "fix_indent(snip)"
+snippet it "Individual item" b
+\item $0
 endsnippet
 
 snippet $ "inline mathmode" i
