@@ -196,11 +196,15 @@ snippet ^ "inserts exponent" i
 ^{${VISUAL}$1}
 endsnippet
 
+snippet sl "inserts \slashed{}" i
+\slashed{${VISUAL}$1}
+endsnippet
+
 snippet tt "inserts exponent" i
 ^{${VISUAL}$1}
 endsnippet
 
-snippet ^^ "inserts exponent" iA
+snippet ^^ "inserts exponent" i
 ^{${VISUAL}$1}
 endsnippet
 
@@ -248,19 +252,19 @@ snippet imp "Implies"
 \implies
 endsnippet
 
-snippet l.. "ldots" iA
+snippet l.. "ldots" i
 \ldots
 endsnippet
 
-snippet c.. "ldots" iA
+snippet c.. "ldots" i
 \cdots
 endsnippet
 
-snippet v.. "ldots" iA
+snippet v.. "ldots" i
 \vdots
 endsnippet
 
-snippet d.. "ldots" iA
+snippet d.. "ldots" i
 \ddots
 endsnippet
 
@@ -284,7 +288,7 @@ snippet LL "limits" i
 ^{${VISUAL}$1}_{$2}
 endsnippet
 
-snippet __ "inline underscore" iA
+snippet __ "inline underscore" i
 _{${VISUAL}$1}
 endsnippet
 
@@ -321,7 +325,7 @@ snippet text "\text{}" i
 endsnippet
 
 snippet int "integral" i
-\int_{$1}^{$2}
+\int
 endsnippet
 
 snippet sum "sum" i
