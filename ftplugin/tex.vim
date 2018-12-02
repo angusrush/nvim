@@ -26,6 +26,9 @@ let g:vimtex_compiler_latexmk = {
       \ ],
       \}
 
+" Set tab to space conversion as low as possible
+set tabstop=1
+
 " Disable overfull/underfull \hbox and all package warnings
 let g:vimtex_quickfix_latexlog = {
       \ 'overfull' : 0,
