@@ -117,14 +117,20 @@ endfunc
 
 " Plugin stuff {{{
 "
-" this makes vim invoke the appropriate plugin when you open a file with the
-" corresponding extension.
-filetype plugin indent on
+" this makes vim detect the filetype of the file you're editing 
+" based on the extension
+filetype on
+
+" Loads the corresponding ftplugin file
+filetype plugin on
+
+" Loads the corresponding indent file
+filetype indent on
 
 " {{{ airline
 
 " Use powerline symbols
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 
 " }}}
 
