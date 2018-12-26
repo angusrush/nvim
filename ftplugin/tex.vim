@@ -10,6 +10,7 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_compiler_progname = 'nvr'
 
 " Tweak a few compiler settings
+" (At the moment using lualatex instead of '-pdf')
 let g:vimtex_compiler_latexmk = {
       \ 'backend' : 'nvim',
       \ 'background' : 1,
@@ -18,10 +19,10 @@ let g:vimtex_compiler_latexmk = {
       \ 'continuous' : 1,
       \ 'executable' : 'latexmk',
       \ 'options' : [
-      \   '-pdf',
       \   '-verbose',
       \   '-file-line-error',
       \   '-synctex=1',
+      \   '-pdf',
       \   '-interaction=nonstopmode',
       \ ],
       \}
