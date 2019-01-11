@@ -212,14 +212,14 @@ map ]% <Plug>(IndentWiseBlockScopeBoundaryEnd)
 
 " vertigo {{{
 
-" get vertigo working
+" Disabled while I learn to touch-type numbers
 
-nnoremap <silent><leader>j :<C-U>VertigoDown n<CR>
-vnoremap <silent><leader>j :<C-U>VertigoDown v<CR>
-onoremap <silent><leader>j :<C-U>VertigoDown o<CR>
-nnoremap <silent><leader>k :<C-U>VertigoUp n<CR>
-vnoremap <silent><leader>k :<C-U>VertigoUp v<CR>
-onoremap <silent><leader>k :<C-U>VertigoUp o<CR>
+"nnoremap <silent><leader>j :<C-U>VertigoDown n<CR>
+"vnoremap <silent><leader>j :<C-U>VertigoDown v<CR>
+"onoremap <silent><leader>j :<C-U>VertigoDown o<CR>
+"nnoremap <silent><leader>k :<C-U>VertigoUp n<CR>
+"vnoremap <silent><leader>k :<C-U>VertigoUp v<CR>
+"onoremap <silent><leader>k :<C-U>VertigoUp o<CR>
 
 " }}}
 
