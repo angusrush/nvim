@@ -1,6 +1,3 @@
-[submodule "bundle/ale"]
-	path = bundle/ale
-	url = https://github.com/w0rp/ale
 [submodule "bundle/i3-vim-syntax"]
 	path = bundle/i3-vim-syntax
 	url = https://github.com/PotatoesMaster/i3-vim-syntax
@@ -22,21 +19,9 @@
 [submodule "bundle/vimtex"]
 	path = bundle/vimtex
 	url = https://github.com/lervag/vimtex
-[submodule "bundle/vim-unimpaired"]
-	path = bundle/vim-unimpaired
-	url = https://github.com/tpope/vim-unimpaired
-[submodule "bundle/vim-vinegar"]
-	path = bundle/vim-vinegar
-	url = https://github.com/tpope/vim-vinegar
 [submodule "bundle/vim-visual-star-search"]
 	path = bundle/vim-visual-star-search
 	url = https://github.com/bronson/vim-visual-star-search
-[submodule "bundle/vim-vertigo"]
-	path = bundle/vim-vertigo
-	url = https://github.com/prendradjaja/vim-vertigo
-[submodule "bundle/vim-indentwise"]
-	path = bundle/vim-indentwise
-	url = https://github.com/jeetsukumaran/vim-indentwise
 [submodule "bundle/vim-dispatch"]
 	path = bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch/
