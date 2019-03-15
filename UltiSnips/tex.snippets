@@ -24,7 +24,7 @@ endsnippet
 
 snippet sss "Subsubsection" b
 \subsection{${1:subsection name}}
-\label{ssc:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+\label{sss:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 $0
 endsnippet
 
@@ -252,6 +252,10 @@ snippet ti "times"
 \times
 endsnippet
 
+snippet otm "times"
+\otimes
+endsnippet
+
 snippet mto "mapsto"
 \mapsto
 endsnippet
@@ -306,6 +310,10 @@ endsnippet
 
 snippet inv "interval" i
 \interval[$1]{$2}{$3}
+endsnippet
+
+snippet op "op" i
+\op
 endsnippet
 
 snippet tiw "\widetilde{}" i

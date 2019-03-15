@@ -4,13 +4,20 @@ set sw=2
 " maplocalleader is also space
 let maplocalleader = "\<Space>"
 
+"Search in multi-file project
+nnoremap <leader>z :vimgrep // *.tex<Left><Left><Left><Left><Left><Left><Left>
+
 " Zathura settings
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_view_method='zathura'
 let g:vimtex_compiler_progname = 'nvr'
 
+" Set path and wildignore for easy file opening using :find
+set path=~/rc,~/latex/**
+set wildignore+=*.aux,*.fdb_latexmk,*.fls,*.log,*.out,*.synctex.gz,*.pdf,tags,*.bcf,*.bbl,*.blg*,*.toc,*.run.xml,core,*.dvi,*.orig,*.tkzparfct.gnuplot,*.png,*.jpg,*_region_*
+set wildignorecase
+
 " Tweak a few compiler settings
-" (At the moment using lualatex instead of '-pdf')
 let g:vimtex_compiler_latexmk = {
       \ 'backend' : 'nvim',
       \ 'background' : 1,
@@ -50,6 +57,9 @@ nnoremap gk k
 " compile current document on angus-server; the variable
 " b:dispatch is defined in ../after/ftplugin/tex.vim
 nnoremap <leader>lr :Dispatch<CR>
+
+" Command for :VimtexToggleMain
+nnoremap <leader>tm :VimtexToggleMain<CR>
 
 " Make latex highlighting a bit more interesting
 highlight link texBeginEndModifier texDocTypeArgs

@@ -3,26 +3,6 @@
 " Pathogen automatically loads plugins
 execute pathogen#infect()
 
-" Use <Space> as leader
-nnoremap <Space> <NOP>
-let mapleader = "\<Space>"
-
-" I like this colorscheme
-set termguicolors
-let g:nord_comment_brightness = 15
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-colorscheme nord
-
-" Trying out no statusline
-set noshowmode
-set noruler
-set laststatus=0
-set noshowcmd
-
-" I can't envision a use case for ex mode
-nnoremap Q <nop>
-
 set breakindent                " Wrapped text respects indentation
 set display=lastline           " Show beginning of a line which ends below the screen
 set expandtab                  " Tabs are spaces
@@ -39,6 +19,31 @@ set undolevels=1000            " How many undos
 set undoreload=10000           " Number of lines to save for undo
 set mouse=a                    " Mouse wheel should scroll the buffer
 set wildmode=longest:list,full " Tab completion should behave like in the terminal
+
+" Use <Space> as leader
+nnoremap <Space> <NOP>
+let mapleader = "\<Space>"
+
+" I like this colorscheme
+set termguicolors
+let g:nord_comment_brightness = 15
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+colorscheme nord
+
+" Switch buffers efficiently
+nnoremap <leader>b :ls<CR>:b<Space>
+
+" Search open buffer with vimgrep
+nnoremap <leader>Z :vimgrep // %<Left><Left><Left>
+
+" Trying out no statusline
+set noshowmode
+set laststatus=0
+set noshowcmd
+
+" I can't envision a use case for ex mode
+nnoremap Q <nop>
 
 " Terminal mappings
 au TermOpen * setlocal nonumber norelativenumber
@@ -63,17 +68,13 @@ nnoremap <M-K> <C-w>K
 nnoremap <M-L> <C-w>L
 
 " Command to get rid of trailing spaces
-nnoremap <leader>s :silent! %s/\s\+$//g<CR> :set nohlsearch<CR>
+nnoremap <leader>s :silent! %s/\s\+$//e \| set nohlsearch<CR>
 
 " I often don't let go of shift in time
 command WQ wq
 command Wq wq
 command W w
 command Q q
-
-" Search for word under cursor faster
-nnoremap gf <C-W>f
-vnoremap gf <C-W>f
 
 " Remove highlighting after a search
 nnoremap <silent><C-c> :nohls<CR>
@@ -96,13 +97,11 @@ augroup END
 noremap <silent> <expr> j (v:count? 'j' : 'gj')
 noremap <silent> <expr> k (v:count? 'k' : 'gk')
 
-" Set path and wildignore for easy file opening using :find
-set path=~/rc,~/latex/**
-set wildignore+=*.aux,*.fdb_latexmk,*.fls,*.log,*.out,*.synctex.gz,*.pdf,tags,*.bcf,*.bbl,*.blg*,*.toc,*.run.xml,core,*.dvi,*.orig,*.tkzparfct.gnuplot,*.png,*.jpg,*_region_*
-set wildignorecase
-
 " Leader map for :find
 nnoremap <leader>f :find *
+
+" Change directory to that of current file
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " print highlight group under cursor
 nmap <leader>sp :call <SID>SynStack()<CR>
@@ -117,7 +116,7 @@ endfunc
 
 " Plugin stuff {{{
 "
-" this makes vim detect the filetype of the file you're editing 
+" this makes vim detect the filetype of the file you're editing
 " based on the extension
 filetype on
 
@@ -126,35 +125,6 @@ filetype plugin on
 
 " Loads the corresponding indent file
 filetype indent on
-
-" {{{ airline
-
-" Use powerline symbols
-" let g:airline_powerline_fonts = 1
-
-" }}}
-
-" {{{ ale
-
-"Disabled by default. Toggle with :ALEToggle
-let g:ale_enabled=0
-
-" map keys to use wrapping.
-nnoremap <silent><Leader>ap :ALEPrevious<CR>
-nnoremap <silent><Leader>an :ALENext<CR>
-
-" Default warning sign is slightly pretty
-let g:ale_sign_warning="⚠"
-
-" only lint when file is saved. Prevents ridiculous slowdown.
-let g:ale_lint_on_text_changed = 'never'
-
-let g:ale_linters = {
-      \ 'tex':['chktex', 'proselint'],
-      \ 'vim':['vint'],
-      \}
-
-" }}}
 
 " {{{ sneak
 
@@ -187,39 +157,11 @@ autocmd ColorScheme * hi! link Sneak Search
 let g:gutentags_exclude_project_root=["~/.config/nvim"]
 
 " }}}
- 
+
 " {{{ ultisnips
 
 nnoremap <leader>ue :UltiSnipsEdit<CR>
-
-" }}}
-
-" indentwise {{{
-
-" set up indentwise shortcuts
-map [- <Plug>(IndentWisePreviousLesserIndent)
-map [= <Plug>(IndentWisePreviousEqualIndent)
-map [+ <Plug>(IndentWisePreviousGreaterIndent)
-map ]- <Plug>(IndentWiseNextLesserIndent)
-map ]= <Plug>(IndentWiseNextEqualIndent)
-map ]+ <Plug>(IndentWiseNextGreaterIndent)
-map [_ <Plug>(IndentWisePreviousAbsoluteIndent)
-map ]_ <Plug>(IndentWiseNextAbsoluteIndent)
-map [% <Plug>(IndentWiseBlockScopeBoundaryBegin)
-map ]% <Plug>(IndentWiseBlockScopeBoundaryEnd)
-
-" }}}
-
-" vertigo {{{
-
-" Disabled while I learn to touch-type numbers
-
-"nnoremap <silent><leader>j :<C-U>VertigoDown n<CR>
-"vnoremap <silent><leader>j :<C-U>VertigoDown v<CR>
-"onoremap <silent><leader>j :<C-U>VertigoDown o<CR>
-"nnoremap <silent><leader>k :<C-U>VertigoUp n<CR>
-"vnoremap <silent><leader>k :<C-U>VertigoUp v<CR>
-"onoremap <silent><leader>k :<C-U>VertigoUp o<CR>
+let g:UltisnipsExpandTrigger="<enter>"
 
 " }}}
 
