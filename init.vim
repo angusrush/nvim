@@ -13,18 +13,18 @@ set relativenumber             "     sets the current number as absolute
 set scrolloff=3                " Don't let the cursor get to the bottom of the screen
 set spelllang=en               " I speak english
 set tabstop=4                  " 4 visual spaces per tab
-set undodir=$HOME/.vim/undo    " Where to save undo histories
+set undodir=$HOME/.config/nvim/undo    " Where to save undo histories
 set undofile                   " Enable persistent undo
 set undolevels=1000            " How many undos
 set undoreload=10000           " Number of lines to save for undo
 set mouse=a                    " Mouse wheel should scroll the buffer
-set wildmode=longest:list,full " Tab completion should behave like in the terminal
+set wildmode=longest:list,full " Tab completion should behave like in zsh
 
 " Use <Space> as leader
-nnoremap <Space> <NOP>
+nmap <Space> <NOP>
 let mapleader = "\<Space>"
 
-" I like this colorscheme
+" Nord color scheme (https://github.com/arcticicestudio/nord)
 set termguicolors
 let g:nord_comment_brightness = 15
 let g:nord_italic = 1
@@ -71,10 +71,10 @@ nnoremap <M-L> <C-w>L
 nnoremap <leader>s :silent! %s/\s\+$//e \| set nohlsearch<CR>
 
 " I often don't let go of shift in time
-command WQ wq
-command Wq wq
-command W w
-command Q q
+command! WQ wq
+command! Wq wq
+command! W w
+command! Q q
 
 " Remove highlighting after a search
 nnoremap <silent><C-c> :nohls<CR>

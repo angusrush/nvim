@@ -17,6 +17,10 @@ set path=~/rc,~/latex/**
 set wildignore+=*.aux,*.fdb_latexmk,*.fls,*.log,*.out,*.synctex.gz,*.pdf,tags,*.bcf,*.bbl,*.blg*,*.toc,*.run.xml,core,*.dvi,*.orig,*.tkzparfct.gnuplot,*.png,*.jpg,*_region_*
 set wildignorecase
 
+" Change separate line math to inline math
+nnoremap <leader>im kk$JDJi$A$JD
+nnoremap <leader>dm F$ilcl\begin{equation*}f$xo\end{equation*}k
+
 " Tweak a few compiler settings
 let g:vimtex_compiler_latexmk = {
       \ 'backend' : 'nvim',

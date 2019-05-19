@@ -212,6 +212,10 @@ snippet ^^ "inserts exponent" i
 ^{${VISUAL}$1}
 endsnippet
 
+snippet bl "inserts bullet" i
+_{\bullet}
+endsnippet
+
 snippet vec "inserts vector symbol" i
 \vec{${VISUAL}$1}
 endsnippet
@@ -256,6 +260,10 @@ snippet otm "times"
 \otimes
 endsnippet
 
+snippet opl "oplus"
+\oplus
+endsnippet
+
 snippet mto "mapsto"
 \mapsto
 endsnippet
@@ -268,7 +276,7 @@ snippet l.. "ldots" i
 \ldots
 endsnippet
 
-snippet c.. "ldots" i
+snippet cs "ldots" i
 \cdots
 endsnippet
 
@@ -448,6 +456,10 @@ endsnippet
 
 snippet ) "big parentheses" i
 \left( ${VISUAL}$1 \right)
+endsnippet
+
+snippet < "small langles" i
+\langle ${VISUAL}$1 \rangle
 endsnippet
 
 snippet > "big langles" i
@@ -712,6 +724,25 @@ endsnippet
 
 snippet nc "newcommand" i
 \newcommand{$1}{$2}
+endsnippet
+
+snippet sympy "sympy block " w
+sympy $1 sympy$0
+endsnippet
+
+priority 10000
+snippet 'sympy(.*)sympy' "evaluate sympy" wr
+`!p
+from sympy import *
+x, y, z, t = symbols('x y z t')
+k, m, n = symbols('k m n', integer=True)
+f, g, h = symbols('f g h', cls=Function)
+init_printing()
+snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
+    .replace('^', '**') \
+    .replace('{', '(') \
+    .replace('}', ')') + ')')
+`
 endsnippet
 
 # Templates
