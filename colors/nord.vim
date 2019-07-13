@@ -184,7 +184,7 @@ endif
 "+--- Gutter ---+
 call s:hi("CursorColumn", "", s:nord3_gui_bright, "NONE", s:nord1_term, "", "")
 call s:hi("CursorLineNr", s:nord3_gui_bright, "NONE", "NONE", "", "", "")
-call s:hi("Folded", s:nord3_gui_bright, s:nord2_gui, s:nord1_term, s:nord3_term, "bold", "")
+call s:hi("Folded", s:nord3_gui_bright, "NONE", s:nord1_term, s:nord3_term, "bold", "")
 call s:hi("FoldColumn", s:nord3_gui_bright, s:nord0_gui, s:nord3_term, "NONE", "", "")
 call s:hi("SignColumn", s:nord3_gui, "NONE", s:nord1_term, "NONE", "", "")
 

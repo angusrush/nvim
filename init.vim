@@ -1,7 +1,18 @@
-" General settings {{{
+" File:     init.vim
+" Location: https://github.com/angusrush/nvim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" General settings
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Pathogen {{{
 
 " Pathogen automatically loads plugins
 execute pathogen#infect()
+
+" }}}
+
+" General settings {{{
 
 set breakindent                " Wrapped text respects indentation
 set display=lastline           " Show beginning of a line which ends below the screen
@@ -20,9 +31,12 @@ set undoreload=10000           " Number of lines to save for undo
 set mouse=a                    " Mouse wheel should scroll the buffer
 set wildmode=longest:list,full " Tab completion should behave like in zsh
 
-" Use <Space> as leader
-nmap <Space> <NOP>
-let mapleader = "\<Space>"
+" I can't envision a use case for ex mode
+nnoremap Q <nop>
+
+" }}}
+
+" Appearance {{{
 
 " Nord color scheme (https://github.com/arcticicestudio/nord)
 set termguicolors
@@ -31,19 +45,15 @@ let g:nord_italic = 1
 let g:nord_italic_comments = 1
 colorscheme nord
 
-" Switch buffers efficiently
-nnoremap <leader>b :ls<CR>:b<Space>
-
-" Search open buffer with vimgrep
-nnoremap <leader>Z :vimgrep // %<Left><Left><Left>
-
 " Trying out no statusline
 set noshowmode
 set laststatus=0
 set noshowcmd
 
-" I can't envision a use case for ex mode
-nnoremap Q <nop>
+
+" }}}
+
+" Navigation {{{
 
 " Terminal mappings
 au TermOpen * setlocal nonumber norelativenumber
@@ -66,6 +76,18 @@ nnoremap <M-H> <C-w>H
 nnoremap <M-J> <C-w>J
 nnoremap <M-K> <C-w>K
 nnoremap <M-L> <C-w>L
+
+" }}}
+
+" Use <Space> as leader
+nmap <Space> <NOP>
+let mapleader = "\<Space>"
+
+" Switch buffers efficiently
+nnoremap <leader>b :ls<CR>:b<Space>
+
+" Search open buffer with vimgrep
+nnoremap <leader>Z :vimgrep // %<Left><Left><Left>
 
 " Command to get rid of trailing spaces
 nnoremap <leader>s :silent! %s/\s\+$//e \| set nohlsearch<CR>
@@ -112,21 +134,18 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin stuff
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" General settings {{{
+filetype on         " detect the filetype of the file you're editing
+filetype plugin on  " Load the corresponding ftplugin file
+filetype indent on  " Load the corresponding indent file
 " }}}
 
-" Plugin stuff {{{
-"
-" this makes vim detect the filetype of the file you're editing
-" based on the extension
-filetype on
-
-" Loads the corresponding ftplugin file
-filetype plugin on
-
-" Loads the corresponding indent file
-filetype indent on
-
-" {{{ sneak
+" {{{ Sneak
 
 " 1-character enhanced 'f'
 nmap f <Plug>Sneak_f
@@ -152,13 +171,13 @@ omap T <Plug>Sneak_T
 autocmd ColorScheme * hi! link Sneak Search
 " }}}
 
-" {{{ gutentags
+" {{{ Gutentags
 
 let g:gutentags_exclude_project_root=["~/.config/nvim"]
 
 " }}}
 
-" {{{ ultisnips
+" {{{ Ultisnips
 
 nnoremap <leader>ue :UltiSnipsEdit<CR>
 let g:UltisnipsExpandTrigger="<enter>"
@@ -172,7 +191,5 @@ set grepprg=grep\ -nH\ $*
 
 " changes the default filetype back to 'tex'
 let g:tex_flavor='latex'
-
-" }}}
 
 " }}}
