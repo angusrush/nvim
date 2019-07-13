@@ -1,5 +1,5 @@
 " File:     init.vim
-" Location: https://github.com/angusrush/nvim
+" Github: https://github.com/angusrush/nvim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " General settings
@@ -33,6 +33,12 @@ set wildmode=longest:list,full " Tab completion should behave like in zsh
 
 " I can't envision a use case for ex mode
 nnoremap Q <nop>
+
+" I often don't let go of shift in time
+command! WQ wq
+command! Wq wq
+command! W w
+command! Q q
 
 " }}}
 
@@ -77,7 +83,17 @@ nnoremap <M-J> <C-w>J
 nnoremap <M-K> <C-w>K
 nnoremap <M-L> <C-w>L
 
+" Use <C-p> and <C-n> to cycle through commands
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" Move by wrapped lines, but only if no count is provided
+noremap <silent> <expr> j (v:count? 'j' : 'gj')
+noremap <silent> <expr> k (v:count? 'k' : 'gk')
+
 " }}}
+
+" Shortcuts and keymaps {{{
 
 " Use <Space> as leader
 nmap <Space> <NOP>
@@ -91,33 +107,6 @@ nnoremap <leader>Z :vimgrep // %<Left><Left><Left>
 
 " Command to get rid of trailing spaces
 nnoremap <leader>s :silent! %s/\s\+$//e \| set nohlsearch<CR>
-
-" I often don't let go of shift in time
-command! WQ wq
-command! Wq wq
-command! W w
-command! Q q
-
-" Remove highlighting after a search
-nnoremap <silent><C-c> :nohls<CR>
-inoremap <silent><C-c> <C-o>:nohls<CR>
-
-" Yank should behave like d
-map Y y$
-
-" Use <C-p> and <C-n> to cycle through commands
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-
-" Allow folding in init.vim
-augroup filetype_vim
-  autocmd!
-  autocmd FileType vim setlocal foldmethod=marker
-augroup END
-
-" Move by wrapped lines, but only if no count is provided
-noremap <silent> <expr> j (v:count? 'j' : 'gj')
-noremap <silent> <expr> k (v:count? 'k' : 'gk')
 
 " Leader map for :find
 nnoremap <leader>f :find *
@@ -133,6 +122,26 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+" Remove highlighting after a search
+nnoremap <silent><C-c> :nohls<CR>
+inoremap <silent><C-c> <C-o>:nohls<CR>
+
+" Yank should behave like d
+map Y y$
+
+
+" }}}
+
+" Folding {{{
+
+" Allow folding in init.vim
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" }}}
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
