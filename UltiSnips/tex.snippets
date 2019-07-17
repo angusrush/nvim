@@ -28,7 +28,7 @@ snippet sss "Subsubsection" b
 $0
 endsnippet
 
-snippet prop "proposition enviromnent" b
+snippet prp "proposition enviromnent" b
 \begin{proposition}
   ${VISUAL}$1
 \end{proposition}
@@ -90,7 +90,7 @@ snippet "gat" "unnumbered gather" br
 \end{gather*}
 endsnippet
 
-snippet "b(egin)?" "generic environment" br
+snippet "beg(in)?" "generic environment" br
 \begin{${1:something}}
   ${0:${VISUAL}}
 \end{$1}
@@ -192,12 +192,16 @@ snippet ale "aligned equals (&=)" i
 &=
 endsnippet
 
-snippet ^ "inserts exponent" i
+snippet 6 "inserts exponent" i
 ^{${VISUAL}$1}
 endsnippet
 
 snippet sim "\sim" i
 \sim
+endsnippet
+
+snippet cg "\cong" i
+\cong
 endsnippet
 
 snippet sl "inserts \slashed{}" i
@@ -206,14 +210,6 @@ endsnippet
 
 snippet tt "inserts exponent" i
 ^{${VISUAL}$1}
-endsnippet
-
-snippet ^^ "inserts exponent" i
-^{${VISUAL}$1}
-endsnippet
-
-snippet bl "inserts bullet" i
-_{\bullet}
 endsnippet
 
 snippet vec "inserts vector symbol" i
@@ -226,10 +222,6 @@ endsnippet
 
 snippet ten "tensor" i
 \tensor{${VISUAL}$1}{$2}
-endsnippet
-
-snippet dot "inserts dot symbol" i
-\dot{${VISUAL}$1}
 endsnippet
 
 snippet arr "Simple arrow latex snippet"
@@ -288,14 +280,6 @@ snippet d.. "ldots" i
 \ddots
 endsnippet
 
-snippet _ "inline underscore" i
-_{${VISUAL}$1}
-endsnippet
-
-snippet ss "inline underscore" i
-_{${VISUAL}$1}
-endsnippet
-
 snippet - "inline underscore" i
 _{${VISUAL}$1}
 endsnippet
@@ -306,10 +290,6 @@ endsnippet
 
 snippet LL "limits" i
 ^{${VISUAL}$1}_{$2}
-endsnippet
-
-snippet __ "inline underscore" i
-_{${VISUAL}$1}
 endsnippet
 
 snippet til "\tilde{}" i
@@ -328,16 +308,12 @@ snippet tiw "\widetilde{}" i
 \widetilde{${VISUAL}$1}
 endsnippet
 
-snippet : "colon" i
+snippet ; "colon" i
 \colon
 endsnippet
 
 snippet pa "partial" i
 \partial
-endsnippet
-
-snippet ; "\dot{}" i
-\dot{${VISUAL}$1}
 endsnippet
 
 snippet hat "\hat{}" i
@@ -392,7 +368,7 @@ snippet qq "qquad" i
 \qquad
 endsnippet
 
-snippet sb "subset" i
+snippet ss "subset" i
 \subset
 endsnippet
 
@@ -426,7 +402,7 @@ snippet href "hyperref" i
 \hyperref[$1]{$2~\ref*{$1}}
 endsnippet
 
-snippet lab "label" i
+snippet lbl "label" i
 \label{$1}
 endsnippet
 
@@ -440,21 +416,21 @@ snippet it "Individual item" b
 \item $0
 endsnippet
 
-snippet $ "inline mathmode" i
+snippet 4 "inline mathmode" i
 \$${VISUAL}$1\$
 endsnippet
 
-snippet " "inline mathmode" i
+snippet ' "inline quotes" i
 "${VISUAL}$1"
 endsnippet
 
 # Delimiters
 
-snippet ( "small parentheses" i
+snippet 9 "small parentheses" i
 (${VISUAL}$1)
 endsnippet
 
-snippet ) "big parentheses" i
+snippet 0 "big parentheses" i
 \left( ${VISUAL}$1 \right)
 endsnippet
 
@@ -478,7 +454,7 @@ snippet { "small curly braces" i
 \{${VISUAL}$1\}
 endsnippet
 
-snippet B "escaped escaped curly braces" i
+snippet b "escaped escaped curly braces" i
 \\{${VISUAL}$1\\}
 endsnippet
 
@@ -744,6 +720,7 @@ snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
     .replace('}', ')') + ')')
 `
 endsnippet
+
 
 # Templates
 
