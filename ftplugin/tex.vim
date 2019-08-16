@@ -18,7 +18,7 @@ set wildignore+=*.aux,*.fdb_latexmk,*.fls,*.log,*.out,*.synctex.gz,*.pdf,tags,*.
 set wildignorecase
 
 " Change separate line math to inline math
-nnoremap <leader>im kk$JDJi$A$JD
+nnoremap <leader>im kk$JDJxa$A$JD
 nnoremap <leader>dm F$ilcl\begin{equation*}f$xo\end{equation*}k
 
 " Tweak a few compiler settings
@@ -47,7 +47,7 @@ let g:vimtex_quickfix_latexlog = {
       \ 'underfull' : 0,
       \}
 " one-shot compilation
-nnoremap <leader>ls :call vimtex#compiler#compile_ss()<CR>
+nnoremap <leader>ls :w<CR>:call vimtex#compiler#compile_ss()<CR>
 
 " augment surround.vim for latex commands
 let g:surround_{char2nr('c')} = "\\\1command\1{\r}"

@@ -186,6 +186,12 @@ let g:gutentags_exclude_project_root=["~/.config/nvim"]
 
 " }}}
 
+" {{{ HardTime
+
+let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>", "<BS><BS>"]
+
+" }}}
+
 " {{{ Ultisnips
 
 nnoremap <leader>ue :UltiSnipsEdit<CR>
