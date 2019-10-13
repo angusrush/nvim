@@ -29,6 +29,7 @@ if dein#load_state('/home/angus/.local/share/dein')
   call dein#add('tpope/vim-surround')
   call dein#add('lervag/vimtex')
   call dein#add('bronson/vim-visual-star-search')
+  call dein#add('tommcdo/vim-lion')
 
   " Required:
   call dein#end()
