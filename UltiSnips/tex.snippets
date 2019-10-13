@@ -198,6 +198,17 @@ snippet msf "mathsf" i
 \mathsf{$1${VISUAL}}
 endsnippet
 
+context "isMath()"
+snippet co "category" i
+\category{$1${VISUAL}}
+endsnippet
+
+context "isMath()"
+snippet cn "category name" i
+\catname{$1${VISUAL}}
+endsnippet
+
+
 # Text fonts
 
 snippet tbf "textbf" i
@@ -431,6 +442,11 @@ snippet \ "smallsetminus" i
 endsnippet
 
 context "isMath()"
+snippet | "mid" i
+\mid
+endsnippet
+
+context "isMath()"
 snippet . "cdot" i
 \cdot
 endsnippet
@@ -495,7 +511,7 @@ snippet it "Individual item" b
 endsnippet
 
 snippet 4 "inline mathmode" i
-\$${VISUAL}$1\$
+$${VISUAL}$1$
 endsnippet
 
 snippet ' "inline quotes" i

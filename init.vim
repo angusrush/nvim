@@ -5,10 +5,40 @@
 " General settings
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-" Pathogen {{{
+" Dein {{{
 
-" Pathogen automatically loads plugins
-execute pathogen#infect()
+" Required:
+set runtimepath+=/home/angus/.local/share/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/home/angus/.local/share/dein')
+  call dein#begin('/home/angus/.local/share/dein')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/home/angus/.local/share/dein/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here like this:
+  call dein#add('sirver/ultisnips')
+  call dein#add('PotatoesMaster/i3-vim-syntax')
+  call dein#add('tpope/vim-dispatch')
+  call dein#add('radenling/vim-dispatch-neovim')
+  call dein#add('ludovicchabant/vim-gutentags')
+  call dein#add('tpope/vim-repeat')
+  call dein#add('justinmk/vim-sneak')
+  call dein#add('tpope/vim-surround')
+  call dein#add('lervag/vimtex')
+  call dein#add('bronson/vim-visual-star-search')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
 
 " }}}
 
@@ -143,6 +173,11 @@ augroup END
 
 " }}}
 
+" Abbreviations {{{
+
+iabbrev chian chain
+
+" }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin stuff
