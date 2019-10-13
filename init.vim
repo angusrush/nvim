@@ -5,7 +5,7 @@
 " General settings
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-" Dein {{{
+" Load plugins with dein {{{
 
 " Required:
 set runtimepath+=/home/angus/.local/share/dein/repos/github.com/Shougo/dein.vim
@@ -25,6 +25,7 @@ if dein#load_state('/home/angus/.local/share/dein')
   call dein#add('radenling/vim-dispatch-neovim')
   call dein#add('ludovicchabant/vim-gutentags')
   call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-fugitive')
   call dein#add('justinmk/vim-sneak')
   call dein#add('tpope/vim-surround')
   call dein#add('lervag/vimtex')
