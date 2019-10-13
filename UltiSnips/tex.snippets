@@ -27,26 +27,22 @@ endsnippet
 
 snippet cha "Chapter" b
 \chapter{${1:chapter name}}
-\label{ch:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-$0
+\label{ch:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}$0
 endsnippet
 
 snippet sec "Section" b
 \section{${1:section name}}
-\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-$0
+\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}$0
 endsnippet
 
 snippet ssc "Subsection" b
 \subsection{${1:subsection name}}
-\label{ssc:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-$0
+\label{ssc:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}$0
 endsnippet
 
 snippet sss "Subsubsection" b
 \subsection{${1:subsection name}}
-\label{sss:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-$0
+\label{sss:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}$0
 endsnippet
 
 snippet prop "proposition enviromnent" b
@@ -867,202 +863,4 @@ snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
     .replace('{', '(') \
     .replace('}', ')') + ')')
 `
-endsnippet
-
-
-# Templates
-
-snippet homework "Homework" b
-\documentclass[a4paper]{scrartcl}
-
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{fancyhdr}
-\usepackage{amstext}
-\usepackage{array}
-\usepackage{amsthm}
-\usepackage{tikz}
-\usetikzlibrary{cd}
-\usepackage{bm}
-\usepackage{mathrsfs}
-\usepackage{eucal}
-\usepackage{braket}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.14}
-\usepackage{soul}
-\usepackage{hyperref}
-\usepackage{enumitem}
-\usepackage[makeroom]{cancel}
-\usepackage{libertine}
-\usepackage[libertine]{newtxmath}
-\usepackage{anyfontsize}
-\usepackage{subcaption}
-\usepackage{booktabs}
-
-% chktex-file 18
-% chktex-file 6
-% chktex-file 23
-
-\setlength{\parindent}{0em}
-\setlength{\parskip}{.5em}
-\setlength{\headheight}{14.0pt}
-
-% Set up hyperref colors
-\hypersetup{
-colorlinks,
-linkcolor={blue!50!black},
-citecolor={blue!50!black},
-urlcolor={blue!80!black}
-}
-
-\pagestyle{fancy}
-\lhead{Angus Rush}
-\chead{Math$1 Homework $2}
-\rhead{\today}
-
-\newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\tder}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\dd}{\mathrm{d}}
-\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
-\newcommand{\abs}[1]{\left| #1 \right|}
-\newcommand{\afn}{\mathrm{afn}}
-\newcommand{\prn}{\mathrm{prn}}
-\newcommand{\A}{\mathbb{A}}
-\newtheorem{fact}[definition]{Fact}
-
-% Declare theorem styles
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{example}{Example}[section]
-\newtheorem{counterexample}{Counterexample}[section]
-
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{corollary}{Corollary}[section]
-
-\theoremstyle{remark}
-\newtheorem{claim}{Claim}[section]
-\newtheorem{recipe}{Recipe}[section]
-\newtheorem{note}{Note}[section]
-\newtheorem{notation}{Notation}[section]
-\newtheorem{joke}{Joke}[section]
-
-\begin{document}
-$3${VISUAL}
-\end{document}
-endsnippet
-
-snippet notes "Notes" b
-\documentclass[a4paper,12pt]{scrreprt}
-
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{fancyhdr}
-\usepackage{amstext}
-\usepackage{array}
-\usepackage{amsthm}
-\usepackage{tikz}
-\usepackage{bm}
-\usepackage{mathrsfs}
-\usepackage{eucal}
-\usepackage{braket}
-\usepackage{pgfplots}
-\usepackage{soul}
-\usepackage{hyperref}
-\usepackage{enumitem}
-\usepackage{biblatex}
-\usepackage[makeroom]{cancel}
-\usepackage{tensor}
-\usepackage[toc, page]{appendix}
-\usepackage{libertine}
-\usepackage[libertine]{newtxmath}
-\usepackage{anyfontsize}
-\usepackage{interval}
-
-% chktex-file 18
-% chktex-file 6
-
-%bibliography location
-\addbibresource{/home/angus/latex/sources.bib}
-
-% Set up hyperref colors
-\hypersetup{colorlinks,
-    linkcolor={blue!50!black},
-    citecolor={blue!50!black},
-    urlcolor={blue!80!black}
-}
-
-% chktex-file 18
-% chktex-file 23
-% chktex-file 6
-
-% Set up interval package
-\intervalconfig{soft open fences}
-
-% load tikz-cd
-\usetikzlibrary{cd}
-
-% Makes indentation more note-ish
-\setlength{\parindent}{0em}
-\setlength{\parskip}{.5em}
-\setlength{\headheight}{14.0pt}
-
-% Page headers
-\pagestyle{fancy}
-\lhead{Angus Rush}
-\chead{$1 notes}
-\rhead{\today}
-
-% My commands
-\newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\tder}[2]{\frac{\text{d} #1}{\text{d} #2}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\dd}{\text{d}}
-\newcommand{\defn}[1]{\ul{#1}}
-\newcommand{\abs}[1]{\left| #1 \right|}
-
-\DeclareMathOperator{\Mod}{Mod}
-
-% Second level of list uses empty bullets
-\renewcommand{\labelitemii}{$\circ$}
-
-% Declare theorem styles
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{example}{Example}[section]
-\newtheorem{counterexample}{Counterexample}[section]
-\newtheorem{fact}[definition]{Fact}
-\newtheorem{fact-definition}[definition]{Fact-Definition}
-\newtheorem{proposition}[definition]{Proposition}
-
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{corollary}{Corollary}[section]
-
-\theoremstyle{remark}
-\newtheorem{claim}{Claim}[section]
-\newtheorem{recipe}{Recipe}[section]
-\newtheorem{note}{Note}[section]
-\newtheorem{notation}{Notation}[section]
-\newtheorem{joke}{Joke}[section]
-
-\begin{document}
-$0${VISUAL}
-%\printbibliography
-\end{document}
 endsnippet
