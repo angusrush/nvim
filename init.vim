@@ -223,6 +223,12 @@ let g:gutentags_exclude_project_root=["~/.config/nvim"]
 
 " }}}
 
+" {{{ Fugitive
+
+nnoremap <leader>ca :Gcommit -am ""<Left>
+
+" }}}
+
 " {{{ HardTime
 
 let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>", "<BS><BS>"]
