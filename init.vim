@@ -162,6 +162,9 @@ inoremap <silent><C-c> <C-o>:nohls<CR>
 " Yank should behave like d
 map Y y$
 
+nnoremap <leader>co :copen<CR>
+nnoremap <leader>cc :cclose<CR>
+
 
 " }}}
 
@@ -178,6 +181,10 @@ augroup END
 " Abbreviations {{{
 
 iabbrev chian chain
+iabbrev categoires categories
+iabbrev abelina abelian
+iabbrev taht that
+iabbrev inforamtion information
 
 " }}}
 

@@ -1,1 +1,1 @@
-nnoremap <leader>ll :!clear && python3 %<CR>
+nnoremap <leader>ll :Dispatch python %<CR>

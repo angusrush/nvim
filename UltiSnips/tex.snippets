@@ -160,12 +160,12 @@ endsnippet
 
 # Math Fonts
 context "isMath()"
-snippet mcl "mathcal" i
+snippet cl "mathcal" i
 \mathcal{$1${VISUAL}}
 endsnippet
 
 context "isMath()"
-snippet mfk "mathfrak" i
+snippet fk "mathfrak" i
 \mathfrak{$1${VISUAL}}
 endsnippet
 
@@ -175,22 +175,22 @@ snippet mrm "mathrm" i
 endsnippet
 
 context "isMath()"
-snippet msc "mathscr" i
+snippet sc "mathscr" i
 \mathscr{$1${VISUAL}}
 endsnippet
 
 context "isMath()"
-snippet mbb "mathbb" i
+snippet bb "mathbb" i
 \mathbb{$1${VISUAL}}
 endsnippet
 
 context "isMath()"
-snippet mbf "mathbf" i
+snippet bf "mathbf" i
 \mathbf{$1${VISUAL}}
 endsnippet
 
 context "isMath()"
-snippet msf "mathsf" i
+snippet sf "mathsf" i
 \mathsf{$1${VISUAL}}
 endsnippet
 
@@ -207,7 +207,8 @@ endsnippet
 
 # Text fonts
 
-snippet tbf "textbf" i
+context "not isMath()"
+snippet bf "textbf" i
 \textbf{$1${VISUAL}}
 endsnippet
 
@@ -278,6 +279,11 @@ snippet to "To"
 endsnippet
 
 context "isMath()"
+snippet hr "To"
+\hookrightarrow
+endsnippet
+
+context "isMath()"
 snippet we "wedge"
 \wedge
 endsnippet
@@ -295,6 +301,11 @@ endsnippet
 context "isMath()"
 snippet ti "times"
 \times
+endsnippet
+
+context "isMath()"
+snippet bul "bullet" i
+\bullet
 endsnippet
 
 context "isMath()"
@@ -492,6 +503,10 @@ snippet href "hyperref" i
 \hyperref[$1]{$2~\ref*{$1}}
 endsnippet
 
+snippet cite "citation" i
+\cite{$1}
+endsnippet
+
 snippet lbl "label" i
 \label{$1}
 endsnippet
@@ -562,6 +577,10 @@ endsnippet
 
 snippet bar "bar" i
 \bar{${VISUAL}$1}
+endsnippet
+
+snippet ovl "overline" i
+\overline{${VISUAL}$1}
 endsnippet
 
 snippet norm "norm" i

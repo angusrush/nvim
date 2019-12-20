@@ -22,8 +22,8 @@ set wildignore+=*.aux,*.fdb_latexmk,*.fls,*.log,*.out,*.synctex.gz,*.pdf,tags,*.
 set wildignorecase
 
 " Change separate line math to inline math
-nnoremap <leader>im kk$JDJxa$A$JD
-nnoremap <leader>dm F$ilcl\begin{equation*}f$xo\end{equation*}k
+nnoremap <leader>im kkJDJa$A$JD
+nnoremap <leader>dm F$i\begin{equation*}lxo\end{q€kbequation*}k$x
 
 " Tweak a few compiler settings
 let g:vimtex_compiler_latexmk = {
