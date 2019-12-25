@@ -21,7 +21,7 @@ endglobal
 
 # Environments
 
-snippet pac "Package" b
+snippet pac "\usepackage" b
 \usepackage`!p snip.rv='[' if t[1] else ""`${1:options}`!p snip.rv = ']' if t[1] else ""`{${2:package}}$0
 endsnippet
 
@@ -119,7 +119,8 @@ snippet ali "unnumbered align" b
 \end{align*}
 endsnippet
 
-snippet ecd "tikzcd" b
+context "not(isMath())"
+snippet ecd "tikzcd inside equation environment" b
 \begin{equation*}
   \begin{tikzcd}
     ${VISUAL}$1
@@ -127,14 +128,21 @@ snippet ecd "tikzcd" b
 \end{equation*}
 endsnippet
 
-snippet def "definition" b
+context "isMath()"
+snippet ecd "tikzcd inside equation environment" b
+\begin{tikzcd}
+  ${VISUAL}$1
+\end{tikzcd}
+endsnippet
+
+snippet def "definition environment" b
 \begin{definition}[${1:definition name}]
   \label{def:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
   ${VISUAL}$3
 \end{definition}
 endsnippet
 
-snippet mat "generic matrix" b
+snippet mat "generic matrix environment" b
 \begin{$1matrix}
   $2${VISUAL}
 \end{$1matrix}
@@ -229,7 +237,7 @@ snippet ale "aligned equals (&=)" i
 endsnippet
 
 context "isMath()"
-snippet 6 "inserts exponent" i
+snippet 6 "exponent" i
 ^{${VISUAL}$1}
 endsnippet
 
@@ -244,22 +252,22 @@ snippet cg "\cong" i
 endsnippet
 
 context "isMath()"
-snippet sl "inserts \slashed{}" i
+snippet sl "\slashed{}" i
 \slashed{${VISUAL}$1}
 endsnippet
 
 context "isMath()"
-snippet tt "inserts exponent" i
+snippet tt "exponent" i
 ^{${VISUAL}$1}
 endsnippet
 
 context "isMath()"
-snippet vec "inserts vector symbol" i
+snippet vec "vector symbol" i
 \vec{${VISUAL}$1}
 endsnippet
 
 context "isMath()"
-snippet Ob "inserts \Obj" i
+snippet ob "\Obj" i
 \Obj
 endsnippet
 
@@ -269,7 +277,7 @@ snippet ten "tensor" i
 endsnippet
 
 context "isMath()"
-snippet arr "Simple arrow latex snippet"
+snippet arr "Simple arrow"
 \arrow[$1]
 endsnippet
 
@@ -279,7 +287,7 @@ snippet to "To"
 endsnippet
 
 context "isMath()"
-snippet hr "To"
+snippet hr "hookrightarrow"
 \hookrightarrow
 endsnippet
 
