@@ -143,6 +143,17 @@ nnoremap <leader>s :silent! %s/\s\+$//e \| set nohlsearch<CR>
 " Leader map for :find
 nnoremap <leader>f :find *
 
+" Toggle relative numbers
+function ToggleRelativeNumbers()
+  if &relativenumber == 1
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <silent> <leader>r :call ToggleRelativeNumbers()<CR>
+
 " Change directory to that of current file
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
