@@ -149,6 +149,7 @@ function ToggleRelativeNumbers()
     set norelativenumber
   else
     set relativenumber
+    set number
   endif
 endfunc
 
