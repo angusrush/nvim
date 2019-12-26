@@ -7,7 +7,7 @@
 
 " Load plugins with dein {{{
 
-" Required:
+" Source dein
 set runtimepath+=/home/angus/.local/share/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
@@ -15,10 +15,7 @@ if dein#load_state('/home/angus/.local/share/dein')
   call dein#begin('/home/angus/.local/share/dein')
 
   " Let dein manage dein
-  " Required:
   call dein#add('/home/angus/.local/share/dein/repos/github.com/Shougo/dein.vim')
-
-  " Add or remove your plugins here like this:
   call dein#add('sirver/ultisnips')
   call dein#add('PotatoesMaster/i3-vim-syntax')
   call dein#add('tpope/vim-dispatch')
@@ -31,6 +28,7 @@ if dein#load_state('/home/angus/.local/share/dein')
   call dein#add('lervag/vimtex')
   call dein#add('bronson/vim-visual-star-search')
   call dein#add('tommcdo/vim-lion')
+  call dein#add('wsdjeg/dein-ui.vim')
 
   " Required:
   call dein#end()
