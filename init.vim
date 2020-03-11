@@ -29,6 +29,7 @@ if dein#load_state('/home/angus/.local/share/dein')
   call dein#add('bronson/vim-visual-star-search')
   call dein#add('tommcdo/vim-lion')
   call dein#add('wsdjeg/dein-ui.vim')
+  call dein#add('prendradjaja/vim-vertigo')
 
   " Required:
   call dein#end()
@@ -59,7 +60,9 @@ set undofile                   " Enable persistent undo
 set undolevels=1000            " How many undos
 set undoreload=10000           " Number of lines to save for undo
 set mouse=a                    " Mouse wheel should scroll the buffer
-set wildmode=longest:list,full " Tab completion should behave like in zsh
+set wildmode=longest,full " Tab completion should behave like in zsh
+set wildoptions=pum
+set pumblend=20
 
 " I can't envision a use case for ex mode
 nnoremap Q <nop>
@@ -252,10 +255,10 @@ let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>", "<BS><BS>"]
 
 " }}}
 
-" {{{ Ultisnips
+" {{{ UltiSnips
 
 nnoremap <leader>ue :UltiSnipsEdit<CR>
-let g:UltisnipsExpandTrigger="<enter>"
+let g:UltisnipsExpandTrigger="<C-j>"
 
 " }}}
 
@@ -266,5 +269,16 @@ set grepprg=grep\ -nH\ $*
 
 " changes the default filetype back to 'tex'
 let g:tex_flavor='latex'
+
+" }}}
+
+" Vertigo {{{
+
+nnoremap <silent> <Space>j :<C-U>VertigoDown n<CR>
+vnoremap <silent> <Space>j :<C-U>VertigoDown v<CR>
+onoremap <silent> <Space>j :<C-U>VertigoDown o<CR>
+nnoremap <silent> <Space>k :<C-U>VertigoUp n<CR>
+vnoremap <silent> <Space>k :<C-U>VertigoUp v<CR>
+onoremap <silent> <Space>k :<C-U>VertigoUp o<CR>
 
 " }}}
