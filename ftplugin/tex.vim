@@ -8,9 +8,18 @@ let maplocalleader = "\<Space>"
 nnoremap <leader>z :vimgrep // *.tex<Left><Left><Left><Left><Left><Left><Left>
 
 " Zathura settings
-let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_view_method='zathura'
-let g:vimtex_compiler_progname = 'nvr'
+if has('zathura')
+  let g:vimtex_view_general_viewer = 'zathura'
+  let g:vimtex_view_method='zathura'
+else
+  let g:vimtex_view_general_viewer = 'okular'
+  let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+  let g:vimtex_view_general_options_latexmk = '--unique'
+endif
+
+if has('nvim')
+  let g:vimtex_compiler_progname = 'nvr'
+endif
 
 " Make changing label names easier
 set iskeyword-=:
@@ -25,22 +34,24 @@ set wildignorecase
 nnoremap <leader>im kkJDJa$A$JD
 nnoremap <leader>dm F$i\begin{equation*}lxo\end{q€kbequation*}k$x
 
+if has('nvim')
 " Tweak a few compiler settings
-let g:vimtex_compiler_latexmk = {
-      \ 'backend' : 'nvim',
-      \ 'background' : 1,
-      \ 'build_dir' : '',
-      \ 'callback' : 1,
-      \ 'continuous' : 1,
-      \ 'executable' : 'latexmk',
-      \ 'options' : [
-      \   '-verbose',
-      \   '-file-line-error',
-      \   '-synctex=1',
-      \   '-pdf',
-      \   '-interaction=nonstopmode',
-      \ ],
-      \}
+  let g:vimtex_compiler_latexmk = {
+        \ 'backend' : 'nvim',
+        \ 'background' : 1,
+        \ 'build_dir' : '',
+        \ 'callback' : 1,
+        \ 'continuous' : 1,
+        \ 'executable' : 'latexmk',
+        \ 'options' : [
+        \   '-verbose',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-pdf',
+        \   '-interaction=nonstopmode',
+        \ ],
+        \}
+endif
 
 " Set tab to space conversion as low as possible
 set tabstop=1
