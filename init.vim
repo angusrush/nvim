@@ -8,32 +8,61 @@
 " Load plugins with dein {{{
 
 " Source dein
-set runtimepath+=/home/angus/.local/share/dein/repos/github.com/Shougo/dein.vim
+if has('nvim')
+  set runtimepath+=/home/angus/.local/share/dein/repos/github.com/Shougo/dein.vim
 
-" Required:
-if dein#load_state('/home/angus/.local/share/dein')
-  call dein#begin('/home/angus/.local/share/dein')
+  if dein#load_state('/home/angus/.local/share/dein')
+    call dein#begin('/home/angus/.local/share/dein')
+  
+    " Let dein manage dein
+    call dein#add('/home/angus/.local/share/dein/repos/github.com/Shougo/dein.vim')
+    call dein#add('sirver/ultisnips')
+    call dein#add('PotatoesMaster/i3-vim-syntax')
+    call dein#add('tpope/vim-dispatch')
+    call dein#add('radenling/vim-dispatch-neovim')
+    call dein#add('ludovicchabant/vim-gutentags')
+    call dein#add('tpope/vim-repeat')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('justinmk/vim-sneak')
+    call dein#add('tpope/vim-surround')
+    call dein#add('lervag/vimtex')
+    call dein#add('bronson/vim-visual-star-search')
+    call dein#add('tommcdo/vim-lion')
+    call dein#add('wsdjeg/dein-ui.vim')
+    call dein#add('prendradjaja/vim-vertigo')
+  
+    " Required:
+    call dein#end()
+    call dein#save_state()
+  endif
 
-  " Let dein manage dein
-  call dein#add('/home/angus/.local/share/dein/repos/github.com/Shougo/dein.vim')
-  call dein#add('sirver/ultisnips')
-  call dein#add('PotatoesMaster/i3-vim-syntax')
-  call dein#add('tpope/vim-dispatch')
-  call dein#add('radenling/vim-dispatch-neovim')
-  call dein#add('ludovicchabant/vim-gutentags')
-  call dein#add('tpope/vim-repeat')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('justinmk/vim-sneak')
-  call dein#add('tpope/vim-surround')
-  call dein#add('lervag/vimtex')
-  call dein#add('bronson/vim-visual-star-search')
-  call dein#add('tommcdo/vim-lion')
-  call dein#add('wsdjeg/dein-ui.vim')
-  call dein#add('prendradjaja/vim-vertigo')
+else
+  set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
+  if dein#load_state('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
+  
+    " Let dein manage dein
+    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+    call dein#add('sirver/ultisnips')
+    call dein#add('PotatoesMaster/i3-vim-syntax')
+    call dein#add('tpope/vim-dispatch')
+    call dein#add('radenling/vim-dispatch-neovim')
+    call dein#add('ludovicchabant/vim-gutentags')
+    call dein#add('tpope/vim-repeat')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('justinmk/vim-sneak')
+    call dein#add('tpope/vim-surround')
+    call dein#add('lervag/vimtex')
+    call dein#add('bronson/vim-visual-star-search')
+    call dein#add('tommcdo/vim-lion')
+    call dein#add('wsdjeg/dein-ui.vim')
+    call dein#add('prendradjaja/vim-vertigo')
+  
+    " Required:
+    call dein#end()
+    call dein#save_state()
+  endif
 endif
 
 " If you want to install not installed plugins on startup.
@@ -48,7 +77,6 @@ endif
 set breakindent                " Wrapped text respects indentation
 set display=lastline           " Show beginning of a line which ends below the screen
 set expandtab                  " Tabs are spaces
-set inccommand=nosplit         " Show substitute changes live
 set linebreak                  " Intelligent line breaks
 set number                     " Enabling both of these...
 set relativenumber             "     sets the current number as absolute
@@ -61,8 +89,12 @@ set undolevels=1000            " How many undos
 set undoreload=10000           " Number of lines to save for undo
 set mouse=a                    " Mouse wheel should scroll the buffer
 set wildmode=longest,full " Tab completion should behave like in zsh
-set wildoptions=pum
-set pumblend=20
+
+if has('nvim')
+  set inccommand=nosplit         " Show substitute changes live
+  set wildoptions=pum
+  set pumblend=20
+endif
 
 " I can't envision a use case for ex mode
 nnoremap Q <nop>
@@ -94,27 +126,29 @@ set noshowcmd
 
 " Navigation {{{
 
+if has('nvim')
 " Terminal mappings
 au TermOpen * setlocal nonumber norelativenumber
-tnoremap <M-n> <C-\><C-n>
-tnoremap <M-h> <C-\><C-n><C-w>h
-tnoremap <M-j> <C-\><C-n><C-w>j
-tnoremap <M-k> <C-\><C-n><C-w>k
-tnoremap <M-l> <C-\><C-n><C-w>l
-tnoremap <M-H> <C-\><C-n><C-w>H
-tnoremap <M-J> <C-\><C-n><C-w>J
-tnoremap <M-K> <C-\><C-n><C-w>K
-tnoremap <M-L> <C-\><C-n><C-w>L
-
-" Buffer navigation mappings
-nnoremap <M-h> <C-w>h
-nnoremap <M-j> <C-w>j
-nnoremap <M-k> <C-w>k
-nnoremap <M-l> <C-w>l
-nnoremap <M-H> <C-w>H
-nnoremap <M-J> <C-w>J
-nnoremap <M-K> <C-w>K
-nnoremap <M-L> <C-w>L
+  tnoremap <M-n> <C-\><C-n>
+  tnoremap <M-h> <C-\><C-n><C-w>h
+  tnoremap <M-j> <C-\><C-n><C-w>j
+  tnoremap <M-k> <C-\><C-n><C-w>k
+  tnoremap <M-l> <C-\><C-n><C-w>l
+  tnoremap <M-H> <C-\><C-n><C-w>H
+  tnoremap <M-J> <C-\><C-n><C-w>J
+  tnoremap <M-K> <C-\><C-n><C-w>K
+  tnoremap <M-L> <C-\><C-n><C-w>L
+  
+  " Buffer navigation mappings
+  nnoremap <M-h> <C-w>h
+  nnoremap <M-j> <C-w>j
+  nnoremap <M-k> <C-w>k
+  nnoremap <M-l> <C-w>l
+  nnoremap <M-H> <C-w>H
+  nnoremap <M-J> <C-w>J
+  nnoremap <M-K> <C-w>K
+  nnoremap <M-L> <C-w>L
+endif
 
 " Use <C-p> and <C-n> to cycle through commands
 cnoremap <C-p> <Up>
