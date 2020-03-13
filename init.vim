@@ -1,4 +1,4 @@
-" File:     init.vim
+" File:   init.vim
 " Github: https://github.com/angusrush/nvim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -111,10 +111,10 @@ command! Q q
 
 " Nord color scheme (https://github.com/arcticicestudio/nord)
 set termguicolors
-let g:nord_comment_brightness = 15
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
-colorscheme nord
+let g:nord_comment_brightness = 15
+colorscheme my-nord
 
 " Trying out no statusline
 set noshowmode
