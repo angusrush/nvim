@@ -275,6 +275,10 @@ autocmd ColorScheme * hi! link Sneak Search
 
 let g:gutentags_exclude_project_root=["~/.config/nvim"]
 
+if !has('nvim')
+  let g:gutentags_enabled = 0
+endif
+
 " }}}
 
 " {{{ Fugitive
