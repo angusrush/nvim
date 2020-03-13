@@ -4,3 +4,7 @@ set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
 colorscheme nord
+
+set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
+
+set guicursor+=a:blinkon0
