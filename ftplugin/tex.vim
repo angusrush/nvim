@@ -61,6 +61,14 @@ let g:vimtex_quickfix_latexlog = {
       \ 'overfull' : 0,
       \ 'underfull' : 0,
       \}
+
+" Disable custom warnings based on regexp
+let g:vimtex_quickfix_ignore_filters = [
+      \ '/tikz/marking',
+      \ 'Cannot patch \\document',
+      \]
+
+
 " one-shot compilation
 nnoremap <leader>ls :w<CR>:call vimtex#compiler#compile_ss()<CR>
 
