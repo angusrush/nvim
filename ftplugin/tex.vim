@@ -8,7 +8,7 @@ let maplocalleader = "\<Space>"
 nnoremap <leader>z :vimgrep // *.tex<Left><Left><Left><Left><Left><Left><Left>
 
 " Zathura settings
-if has('zathura')
+if has('nvim')
   let g:vimtex_view_general_viewer = 'zathura'
   let g:vimtex_view_method='zathura'
 else
@@ -26,7 +26,7 @@ set iskeyword-=:
 set iskeyword-=_
 
 " Set path and wildignore for easy file opening using :find
-set path=~/rc,~/latex/**
+set path=.,~/rc,~/latex/**,,
 set wildignore+=*.aux,*.fdb_latexmk,*.fls,*.log,*.out,*.synctex.gz,*.pdf,tags,*.bcf,*.bbl,*.blg*,*.toc,*.run.xml,core,*.dvi,*.orig,*.tkzparfct.gnuplot,*.png,*.jpg,*_region_*
 set wildignorecase
 
