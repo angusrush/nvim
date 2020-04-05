@@ -30,6 +30,7 @@ if has('nvim')
     call dein#add('tommcdo/vim-lion')
     call dein#add('wsdjeg/dein-ui.vim')
     call dein#add('prendradjaja/vim-vertigo')
+    call dein#add('arcticicestudio/nord-vim')
   
     " Required:
     call dein#end()
@@ -110,11 +111,9 @@ command! Q q
 " Appearance {{{
 
 " Nord color scheme (https://github.com/arcticicestudio/nord)
-set termguicolors
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
-let g:nord_comment_brightness = 15
-colorscheme my-nord
+colorscheme nord
 
 " Trying out no statusline
 set noshowmode
