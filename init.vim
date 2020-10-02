@@ -31,6 +31,7 @@ if has('nvim')
     call dein#add('wsdjeg/dein-ui.vim')
     call dein#add('prendradjaja/vim-vertigo')
     call dein#add('arcticicestudio/nord-vim')
+    call dein#add('vimwiki/vimwiki')
   
     " Required:
     call dein#end()
@@ -231,6 +232,9 @@ iabbrev categoires categories
 iabbrev abelina abelian
 iabbrev taht that
 iabbrev inforamtion information
+iabbrev funtcion function
+iabbrev funtcions functions
+iabbrev scuh such
 
 " }}}
 

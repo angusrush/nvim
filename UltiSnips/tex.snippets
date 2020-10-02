@@ -212,6 +212,12 @@ snippet cn "category name" i
 \catname{$1${VISUAL}}
 endsnippet
 
+context "isMath()"
+snippet bs "Bisimplicial set" i
+\bss{$1${VISUAL}}
+endsnippet
+
+
 
 # Text fonts
 
@@ -265,6 +271,12 @@ context "isMath()"
 snippet vec "vector symbol" i
 \vec{${VISUAL}$1}
 endsnippet
+
+context "isMath()"
+snippet dot "time derivative" i
+\dot{${VISUAL}$1}
+endsnippet
+
 
 context "isMath()"
 snippet ob "\Obj" i
@@ -332,8 +344,8 @@ snippet opl "oplus"
 endsnippet
 
 context "isMath()"
-snippet mto "mapsto"
-\mapsto
+snippet Ra "mapsto"
+\Rightarrow
 endsnippet
 
 context "isMath()"
@@ -462,8 +474,8 @@ snippet in "\in" i
 endsnippet
 
 context "isMath()"
-snippet \ "smallsetminus" i
-\smallsetminus
+snippet \ "backslash" i
+\backslash
 endsnippet
 
 context "isMath()"
@@ -515,6 +527,17 @@ context "isMath()"
 snippet span "\Span()" i
 \Span(${VISUAL}$1)
 endsnippet
+
+context "isMath()"
+snippet mr "\Span()" i
+\mathring{${VISUAL}$1}
+endsnippet
+
+context "isMath()"
+snippet sq "square" i
+\square
+endsnippet
+
 
 # Text mode shortcuts
 
