@@ -5,72 +5,27 @@
 " General settings
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-" Load plugins with dein {{{
+" Load plugins with vim-plug {{{
 
-" Source dein
-if has('nvim')
-  set runtimepath+=/home/angus/.local/share/dein/repos/github.com/Shougo/dein.vim
+call plug#begin(stdpath('data').'/plugged')
+Plug 'arcticicestudio/nord-vim'
+Plug 'sirver/ultisnips'
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-surround'
+Plug 'lervag/vimtex'
+Plug 'bronson/vim-visual-star-search'
+Plug 'tommcdo/vim-lion'
+Plug 'prendradjaja/vim-vertigo'
+Plug 'vimwiki/vimwiki'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-  if dein#load_state('/home/angus/.local/share/dein')
-    call dein#begin('/home/angus/.local/share/dein')
-  
-    " Let dein manage dein
-    call dein#add('/home/angus/.local/share/dein/repos/github.com/Shougo/dein.vim')
-    call dein#add('sirver/ultisnips')
-    call dein#add('PotatoesMaster/i3-vim-syntax')
-    call dein#add('tpope/vim-dispatch')
-    call dein#add('radenling/vim-dispatch-neovim')
-    call dein#add('ludovicchabant/vim-gutentags')
-    call dein#add('tpope/vim-repeat')
-    call dein#add('tpope/vim-fugitive')
-    call dein#add('justinmk/vim-sneak')
-    call dein#add('tpope/vim-surround')
-    call dein#add('lervag/vimtex')
-    call dein#add('bronson/vim-visual-star-search')
-    call dein#add('tommcdo/vim-lion')
-    call dein#add('wsdjeg/dein-ui.vim')
-    call dein#add('prendradjaja/vim-vertigo')
-    call dein#add('arcticicestudio/nord-vim')
-    call dein#add('vimwiki/vimwiki')
-  
-    " Required:
-    call dein#end()
-    call dein#save_state()
-  endif
-
-else
-  set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-
-  if dein#load_state('~/.cache/dein')
-    call dein#begin('~/.cache/dein')
-  
-    " Let dein manage dein
-    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-    call dein#add('sirver/ultisnips')
-    call dein#add('PotatoesMaster/i3-vim-syntax')
-    call dein#add('tpope/vim-dispatch')
-    call dein#add('radenling/vim-dispatch-neovim')
-    call dein#add('ludovicchabant/vim-gutentags')
-    call dein#add('tpope/vim-repeat')
-    call dein#add('tpope/vim-fugitive')
-    call dein#add('justinmk/vim-sneak')
-    call dein#add('tpope/vim-surround')
-    call dein#add('lervag/vimtex')
-    call dein#add('bronson/vim-visual-star-search')
-    call dein#add('tommcdo/vim-lion')
-    call dein#add('wsdjeg/dein-ui.vim')
-    call dein#add('prendradjaja/vim-vertigo')
-  
-    " Required:
-    call dein#end()
-    call dein#save_state()
-  endif
-endif
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
+call plug#end()
 
 " }}}
 
@@ -127,8 +82,8 @@ set noshowcmd
 " Navigation {{{
 
 if has('nvim')
-" Terminal mappings
-au TermOpen * setlocal nonumber norelativenumber
+  " Terminal mappings
+  au TermOpen * setlocal nonumber norelativenumber
   tnoremap <M-n> <C-\><C-n>
   tnoremap <M-h> <C-\><C-n><C-w>h
   tnoremap <M-j> <C-\><C-n><C-w>j
@@ -138,7 +93,7 @@ au TermOpen * setlocal nonumber norelativenumber
   tnoremap <M-J> <C-\><C-n><C-w>J
   tnoremap <M-K> <C-\><C-n><C-w>K
   tnoremap <M-L> <C-\><C-n><C-w>L
-  
+
   " Buffer navigation mappings
   nnoremap <M-h> <C-w>h
   nnoremap <M-j> <C-w>j
@@ -231,6 +186,7 @@ iabbrev chian chain
 iabbrev categoires categories
 iabbrev abelina abelian
 iabbrev taht that
+iabbrev htat that
 iabbrev inforamtion information
 iabbrev funtcion function
 iabbrev funtcions functions
@@ -294,6 +250,29 @@ nnoremap <leader>ca :Gcommit -am ""<Left>
 
 let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>", "<BS><BS>"]
 
+" }}} 
+
+" {{{ Treesitter
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+  enable = true,
+  disable = {"latex"}},
+
+  incremental_selection = {
+  enable = true,
+  keymaps = {
+    init_selection = "gnn",
+    node_incremental = "grn",
+    scope_incremental = "grc",
+    node_decremental = "grm"}},
+
+  indent = {enable = true}
+}
+EOF
+"lua require("testing")
+
 " }}}
 
 " {{{ UltiSnips
@@ -307,9 +286,6 @@ let g:UltisnipsExpandTrigger="<C-j>"
 
 " sets grep to always generate a file-name.
 set grepprg=grep\ -nH\ $*
-
-" changes the default filetype back to 'tex'
-let g:tex_flavor='latex'
 
 " }}}
 
