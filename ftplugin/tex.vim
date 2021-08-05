@@ -9,7 +9,6 @@ nnoremap <leader>z :vimgrep // *.tex<Left><Left><Left><Left><Left><Left><Left>
 
 " Zathura settings
 if has('nvim')
-  let g:vimtex_view_general_viewer = 'zathura'
   let g:vimtex_view_method='zathura'
 else
   let g:vimtex_view_general_viewer = 'okular'
@@ -89,11 +88,11 @@ nnoremap <leader>lr :Dispatch<CR>
 nnoremap <leader>tm :VimtexToggleMain<CR>
 
 " Make latex highlighting a bit more interesting
-highlight link texBeginEndModifier texDocTypeArgs
-highlight link texBeginEndName String
-highlight link texInputFile String
-highlight link texInputFileOpt Number
-highlight link texMathMatcher String
-highlight link texMatcher String
-highlight link texMatcherNM String
-highlight link texOnlyMath healthError
+" highlight link texBeginEndModifier texDocTypeArgs
+" highlight link texBeginEndName String
+" highlight link texInputFile String
+" highlight link texInputFileOpt Number
+" highlight link texMathMatcher String
+" highlight link texMatcher String
+" highlight link texMatcherNM String
+" highlight link texOnlyMath healthError
