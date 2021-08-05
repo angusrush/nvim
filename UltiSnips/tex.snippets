@@ -1,22 +1,22 @@
 # Useful functions
 
 global !p
-texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C', 'CS', 'D', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
-# If you have http://www.drchip.org/astronaut/vim/vbafiles/amsmath.vba.gz,
-# you want to add:
-texMathZones += ['texMathZone'+x for x in ['E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS', 'J', 'JS', 'K', 'KS', 'L', 'LS']]
-texIgnoreMathZones = ['texMathText']
+texMathZones = ['texMathZone' + x for x in ['', 'X', 'XX', 'Env', 'EnvStarred', 'Ensured']]
+texIgnoreMathZones = ['texMathTextArg']
 
 texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
+
 texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
 
-def isMath():
-    synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
-    if not set(texIgnoreMathZoneIds).isdisjoint(synstackids):
-        return False
-    return not set(texMathZoneIds).isdisjoint(synstackids)
-    # isdisjoint() can short-circuit as soon as a match is found
+ignore = texIgnoreMathZoneIds[0]
 
+def isMath():
+ 	synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
+ 	try:
+  		first = next(i for i in reversed(synstackids) if i in texIgnoreMathZoneIds or i in texMathZoneIds)
+  		return first != ignore
+ 	except StopIteration:
+  		return False
 endglobal
 
 # Environments
@@ -41,7 +41,7 @@ snippet ssc "Subsection" b
 endsnippet
 
 snippet sss "Subsubsection" b
-\subsection{${1:subsection name}}
+\subsubsection{${1:subsection name}}
 \label{sss:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}$0
 endsnippet
 
@@ -142,6 +142,13 @@ snippet def "definition environment" b
 \end{definition}
 endsnippet
 
+snippet construction "construction environment" b
+\begin{construction}
+  ${VISUAL}$1
+\end{construction}
+endsnippet
+
+
 snippet mat "generic matrix environment" b
 \begin{$1matrix}
   $2${VISUAL}
@@ -213,9 +220,9 @@ snippet cn "category name" i
 endsnippet
 
 context "isMath()"
-snippet bs "Bisimplicial set" i
-\bss{$1${VISUAL}}
-endsnippet
+#snippet bs "Bisimplicial set" i
+#\bss{$1${VISUAL}}
+#endsnippet
 
 
 
@@ -250,6 +257,11 @@ endsnippet
 context "isMath()"
 snippet sim "\sim" i
 \sim
+endsnippet
+
+context "isMath()"
+snippet sii "\simeq" i
+\simeq
 endsnippet
 
 context "isMath()"
@@ -304,6 +316,11 @@ snippet hr "hookrightarrow"
 endsnippet
 
 context "isMath()"
+snippet tr "twoheadrightarrow"
+\twoheadrightarrow
+endsnippet
+
+context "isMath()"
 snippet dr "downarrow"
 \downarrow
 endsnippet
@@ -344,9 +361,15 @@ snippet opl "oplus"
 endsnippet
 
 context "isMath()"
-snippet Ra "mapsto"
+snippet Ra "Rightarrow"
 \Rightarrow
 endsnippet
+
+context "isMath()"
+snippet mto "Mapsto"
+\mapsto
+endsnippet
+
 
 context "isMath()"
 snippet imp "implies"
@@ -463,6 +486,12 @@ snippet 8 "infinity" i
 \infty
 endsnippet
 
+context "not(isMath())"
+snippet infty "infinity" i
+$\infty$-
+endsnippet
+
+
 context "isMath()"
 snippet st "star" i
 \star
@@ -537,6 +566,12 @@ context "isMath()"
 snippet sq "square" i
 \square
 endsnippet
+
+context "isMath()"
+snippet Fun "square" i
+\Fun(${VISUAL}$1)
+endsnippet
+
 
 
 # Text mode shortcuts
