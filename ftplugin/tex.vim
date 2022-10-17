@@ -55,12 +55,6 @@ endif
 " Set tab to space conversion as low as possible
 set tabstop=1
 
-" Disable overfull/underfull \hbox and all package warnings
-let g:vimtex_quickfix_latexlog = {
-      \ 'overfull' : 0,
-      \ 'underfull' : 0,
-      \}
-
 " Disable custom warnings based on regexp
 let g:vimtex_quickfix_ignore_filters = [
       \ '/tikz/marking',
