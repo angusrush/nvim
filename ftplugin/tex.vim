@@ -31,7 +31,7 @@ set wildignorecase
 
 " Change separate line math to inline math
 nnoremap <leader>im kkJDJa$A$JD
-nnoremap <leader>dm F$i\begin{equation*}lxo\end{q€kbequation*}k$x
+nnoremap <leader>dm F$i\begin{equation*}lxo\end{equation*}k$xx
 
 if has('nvim')
 " Tweak a few compiler settings
