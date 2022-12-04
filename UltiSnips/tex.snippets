@@ -1,22 +1,8 @@
 # Useful functions
 
 global !p
-texMathZones = ['texMathZone' + x for x in ['', 'X', 'XX', 'Env', 'EnvStarred', 'Ensured']]
-texIgnoreMathZones = ['texMathTextArg']
-
-texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
-
-texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
-
-ignore = texIgnoreMathZoneIds[0]
-
 def isMath():
- 	synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
- 	try:
-  		first = next(i for i in reversed(synstackids) if i in texIgnoreMathZoneIds or i in texMathZoneIds)
-  		return first != ignore
- 	except StopIteration:
-  		return False
+		return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 endglobal
 
 # Environments
@@ -119,7 +105,7 @@ snippet ali "unnumbered align" b
 \end{align*}
 endsnippet
 
-#context "not(isMath())"
+context "not(isMath())"
 snippet ecd "tikzcd inside equation environment" b
 \begin{equation*}
   \begin{tikzcd}
@@ -128,7 +114,7 @@ snippet ecd "tikzcd inside equation environment" b
 \end{equation*}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ecd "tikzcd inside equation environment" b
 \begin{tikzcd}
   ${VISUAL}$1
@@ -174,52 +160,52 @@ snippet cas "cases" b
 endsnippet
 
 # Math Fonts
-#context "isMath()"
+context "isMath()"
 snippet cl "mathcal" i
 \mathcal{$1${VISUAL}}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet fk "mathfrak" i
 \mathfrak{$1${VISUAL}}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet mrm "mathrm" i
 \mathrm{$1${VISUAL}}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet sc "mathscr" i
 \mathscr{$1${VISUAL}}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet bb "mathbb" i
 \mathbb{$1${VISUAL}}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet bf "mathbf" i
 \mathbf{$1${VISUAL}}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet sf "mathsf" i
 \mathsf{$1${VISUAL}}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet co "category" i
 \category{$1${VISUAL}}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet cn "category name" i
 \catname{$1${VISUAL}}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 #snippet bs "Bisimplicial set" i
 #\bss{$1${VISUAL}}
 #endsnippet
@@ -228,7 +214,7 @@ endsnippet
 
 # Text fonts
 
-#context "not isMath()"
+context "not isMath()"
 snippet bf "textbf" i
 \textbf{$1${VISUAL}}
 endsnippet
@@ -244,330 +230,330 @@ endsnippet
 
 # Math mode shortcuts
 
-#context "isMath()"
+context "isMath()"
 snippet ale "aligned equals (&=)" i
 &=
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet 6 "exponent" i
 ^{${VISUAL}$1}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet sim "\sim" i
 \sim
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet sii "\simeq" i
 \simeq
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet cg "\cong" i
 \cong
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet sl "\slashed{}" i
 \slashed{${VISUAL}$1}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet tt "exponent" i
 ^{${VISUAL}$1}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet vec "vector symbol" i
 \vec{${VISUAL}$1}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet dot "time derivative" i
 \dot{${VISUAL}$1}
 endsnippet
 
 
-#context "isMath()"
+context "isMath()"
 snippet ob "\Obj" i
 \Obj
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ten "tensor" i
 \tensor{${VISUAL}$1}{$2}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet arr "Simple arrow"
 \arrow[$1]
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet to "To"
 \to
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet hr "hookrightarrow"
 \hookrightarrow
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet tr "twoheadrightarrow"
 \twoheadrightarrow
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet dr "downarrow"
 \downarrow
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet we "wedge"
 \wedge
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ci "circ"
 \circ
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ama "amalg"
 \amalg
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ti "times"
 \times
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet bul "bullet" i
 \bullet
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet otm "times" i
 \otimes
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet opl "oplus"
 \oplus
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Ra "Rightarrow"
 \Rightarrow
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet mto "Mapsto"
 \mapsto
 endsnippet
 
 
-#context "isMath()"
+context "isMath()"
 snippet imp "implies"
 \implies
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ls "ldots" i
 \ldots
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet cs "cdots" i
 \cdots
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet vs "vdots" i
 \vdots
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ds "ddots" i
 \ddots
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet - "inline underscore" i
 _{${VISUAL}$1}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet LL "limits" i
 _{${VISUAL}$1}^{$2}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ll "limits" i
 ^{${VISUAL}$1}_{$2}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet til "\tilde{}" i
 \tilde{${VISUAL}$1}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet inv "interval" i
 \interval[$1]{$2}{$3}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet op "op" i
 \op
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet tiw "\widetilde{}" i
 \widetilde{${VISUAL}$1}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ; "colon" i
 \colon
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet pa "partial" i
 \partial
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet hat "\hat{}" i
 \hat{${VISUAL}$1}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet text "\text{}" i
 \text{${VISUAL}$1}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet int "integral" i
 \int
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet sum "sum" i
 \sum
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet / "fraction" i
 \frac{${VISUAL}$1}{$2}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet pdr "partial derivative" i
 \pder{${VISUAL}$1}{$2}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet tdr "total derivative" i
 \tder{$1}{$2}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet 2 "square root" i
 \sqrt{$1}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet 8 "infinity" i
 \infty
 endsnippet
 
-#context "not(isMath())"
+context "not(isMath())"
 snippet infty "infinity" i
 $\infty$-
 endsnippet
 
 
-#context "isMath()"
+context "isMath()"
 snippet st "star" i
 \star
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet in "\in" i
 \in
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet \ "backslash" i
 \backslash
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet | "mid" i
 \mid
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet . "cdot" i
 \cdot
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet qq "qquad" i
 \qquad
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ss "subset" i
 \subset
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet sp "supset" i
 \supset
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet cu "supset" i
 \cup
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ca "supset" i
 \cap
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet bu "big union (cup)" i
 \bigcup
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet bi "big intersection (cap)" i
 \bigcap
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet span "\Span()" i
 \Span(${VISUAL}$1)
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet mr "\Span()" i
 \mathring{${VISUAL}$1}
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet sq "square" i
 \square
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Fun "square" i
 \Fun(${VISUAL}$1)
 endsnippet
@@ -675,272 +661,272 @@ endsnippet
 
 # Greek letters
 
-#context "isMath()"
+context "isMath()"
 snippet na "\nabla" i
 \nabla
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet al "\alpha" i
 \alpha
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet be "\beta" i
 \beta
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ga "\gamma" i
 \gamma
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet gav "\digamma" i
 \digamma
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet de "\delta" i
 \delta
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ep "\epsilon" i
 \epsilon
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet epv "\varepsilon" i
 \varepsilon
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ze "\zeta" i
 \zeta
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet et "\eta" i
 \eta
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet th "\theta" i
 \theta
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet thv "\vartheta" i
 \vartheta
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet io "\iota" i
 \iota
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ka "\kappa" i
 \kappa
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet kav "\varkappa" i
 \varkappa
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet la "\lambda" i
 \lambda
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet mu "\mu" i
 \mu
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet nu "\nu" i
 \nu
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet xi "\xi" i
 \xi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet pi "\pi" i
 \pi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet piv "\varpi" i
 \varpi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet rh "\rho" i
 \rho
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet rhv "\varrho" i
 \varrho
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet si "\sigma" i
 \sigma
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet siv "\sigma" i
 \varsigma
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ta "\tau" i
 \tau
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet up "\upsilon" i
 \upsilon
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ph "\phi" i
 \phi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet phv "\varphi" i
 \varphi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ch "\ch" i
 \chi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet ps "\ps" i
 \psi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet om "\omega" i
 \omega
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Ga "\Gamma" i
 \Gamma
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Gav "\varGamma" i
 \varGamma
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet De "\Delta" i
 \Delta
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Dev "\varDelta" i
 \varDelta
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Th "\Theta" i
 \Theta
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Thv "\varTheta" i
 \varTheta
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet La "\Lambda" i
 \Lambda
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Lav "\varLambda" i
 \Lambda
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Xi "\Xi" i
 \Xi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Xiv "\varXi" i
 \varXi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Pi "\Pi" i
 \Pi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Piv "\varPi" i
 \varPi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Si "\Sigma" i
 \Sigma
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Siv "\varSigma" i
 \varSigma
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Up "\Upsilon" i
 \Upsilon
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Upv "\varUpsilon" i
 \varUpsilon
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Ph "\Phi" i
 \Phi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Phv "\varPhi" i
 \varPhi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Ps "\Psi" i
 \Psi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Psv "\varPsi" i
 \varPsi
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Om "\Omega" i
 \Omega
 endsnippet
 
-#context "isMath()"
+context "isMath()"
 snippet Omv "\varOmega" i
 \varOmega
 endsnippet
