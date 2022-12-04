@@ -469,7 +469,9 @@ EOF
 " Autopairs {{{
 
 lua << EOF
-require("nvim-autopairs").setup {}
+require("nvim-autopairs").setup({
+  disable_filetype = {"tex"}
+})
 
 local Rule = require('nvim-autopairs.rule')
 local npairs = require('nvim-autopairs')
