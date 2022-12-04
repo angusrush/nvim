@@ -13,7 +13,6 @@ Plug 'sirver/ultisnips'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'justinmk/vim-sneak'
@@ -288,16 +287,6 @@ nnoremap <leader>l <cmd>call setqflist([])<cr>
 
 " }}}
 
-" {{{ Gutentags
-
-let g:gutentags_exclude_project_root=["~/.config/nvim"]
-
-if !has('nvim')
-  let g:gutentags_enabled = 0
-endif
-
-" }}}
-
 " {{{ Fugitive
 
 nnoremap <leader>ca :Gcommit -am ""<Left>
@@ -484,10 +473,6 @@ require("nvim-autopairs").setup {}
 
 local Rule = require('nvim-autopairs.rule')
 local npairs = require('nvim-autopairs')
-
-npairs.add_rule(
-  Rule("a", "a", "-tex")
-)
 
 EOF
 
