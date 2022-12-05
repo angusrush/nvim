@@ -381,8 +381,6 @@ require'lspconfig'.pyright.setup{
   on_attach = on_attach
 }
 
-vim.lsp.set_log_level("debug")
-
 EOF
 
 " }}}
