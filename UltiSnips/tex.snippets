@@ -2,47 +2,55 @@
 
 global !p
 def isMath():
-		return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+  return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 endglobal
 
 # Environments
 
+context "not(isMath())"
 snippet pac "\usepackage" b
 \usepackage`!p snip.rv='[' if t[1] else ""`${1:options}`!p snip.rv = ']' if t[1] else ""`{${2:package}}$0
 endsnippet
 
+context "not(isMath())"
 snippet cha "Chapter" b
 \chapter{${1:chapter name}}
 \label{ch:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}$0
 endsnippet
 
+context "not(isMath())"
 snippet sec "Section" b
 \section{${1:section name}}
 \label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}$0
 endsnippet
 
+context "not(isMath())"
 snippet ssc "Subsection" b
 \subsection{${1:subsection name}}
 \label{ssc:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}$0
 endsnippet
 
+context "not(isMath())"
 snippet sss "Subsubsection" b
 \subsubsection{${1:subsection name}}
 \label{sss:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}$0
 endsnippet
 
+context "not(isMath())"
 snippet prop "proposition enviromnent" b
 \begin{proposition}
   ${VISUAL}$1
 \end{proposition}
 endsnippet
 
+context "not(isMath())"
 snippet thm "theorem enviromnent" b
 \begin{theorem}
   ${VISUAL}$1
 \end{theorem}
 endsnippet
 
+context "not(isMath())"
 snippet lemma "lemma enviromnent" b
 \begin{lemma}
   \label{lemma:$1}
@@ -50,6 +58,7 @@ snippet lemma "lemma enviromnent" b
 \end{lemma}
 endsnippet
 
+context "not(isMath())"
 snippet fact "fact enviromnent" b
 \begin{fact}
   \label{fact:$1}
@@ -57,48 +66,56 @@ snippet fact "fact enviromnent" b
 \end{fact}
 endsnippet
 
+context "not(isMath())"
 snippet proof "proof enviromnent" b
 \begin{proof}
   ${VISUAL}$1
 \end{proof}
 endsnippet
 
+context "not(isMath())"
 snippet cor "corollary enviromnent" b
 \begin{corollary}
   ${VISUAL}$1
 \end{corollary}
 endsnippet
 
+context "not(isMath())"
 snippet eg "example enviromnent" b
 \begin{example}
   ${VISUAL}$1
 \end{example}
 endsnippet
 
+context "not(isMath())"
 snippet note "note enviromnent" b
 \begin{note}
   ${VISUAL}$1
 \end{note}
 endsnippet
 
+context "not(isMath())"
 snippet "eq(uation)?" "unnumbered equation" br
 \begin{equation*}
   ${VISUAL}$1
 \end{equation*}
 endsnippet
 
+context "not(isMath())"
 snippet "gat" "unnumbered gather" br
 \begin{gather*}
   ${VISUAL}$1
 \end{gather*}
 endsnippet
 
+context "not(isMath())"
 snippet "beg(in)?" "generic environment" br
 \begin{${1:something}}
   ${0:${VISUAL}}
 \end{$1}
 endsnippet
 
+context "not(isMath())"
 snippet ali "unnumbered align" b
 \begin{align*}
   ${VISUAL}$1
@@ -121,19 +138,13 @@ snippet ecd "tikzcd inside equation environment" b
 \end{tikzcd}
 endsnippet
 
+context "not(isMath())"
 snippet def "definition environment" b
 \begin{definition}[${1:definition name}]
   \label{def:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
   ${VISUAL}$3
 \end{definition}
 endsnippet
-
-snippet construction "construction environment" b
-\begin{construction}
-  ${VISUAL}$1
-\end{construction}
-endsnippet
-
 
 snippet mat "generic matrix environment" b
 \begin{$1matrix}
@@ -219,10 +230,12 @@ snippet bf "textbf" i
 \textbf{$1${VISUAL}}
 endsnippet
 
+context "not(isMath())"
 snippet tit "textit" i
 \textit{$1${VISUAL}}
 endsnippet
 
+context "not(isMath())"
 snippet emp "emph" i
 \emph{$1${VISUAL}}
 endsnippet
@@ -297,6 +310,12 @@ snippet to "To"
 endsnippet
 
 context "isMath()"
+snippet rsa "Right squig arrow"
+\rightsquigarrow
+endsnippet
+
+
+context "isMath()"
 snippet hr "hookrightarrow"
 \hookrightarrow
 endsnippet
@@ -332,8 +351,8 @@ snippet ti "times"
 endsnippet
 
 context "isMath()"
-snippet bul "bullet" i
-\bullet
+snippet bl "bullet" i
+_{\bullet}
 endsnippet
 
 context "isMath()"
@@ -473,7 +492,7 @@ snippet 8 "infinity" i
 endsnippet
 
 context "not(isMath())"
-snippet infty "infinity" i
+snippet 8 "infinity" i
 $\infty$-
 endsnippet
 
@@ -654,6 +673,11 @@ endsnippet
 snippet ovl "overline" i
 \overline{${VISUAL}$1}
 endsnippet
+
+snippet ov "overline" i
+\overset{$1}{${VISUAL}$2}
+endsnippet
+
 
 snippet norm "norm" i
 \norm{${VISUAL}$1}

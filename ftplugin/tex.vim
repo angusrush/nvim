@@ -16,10 +16,6 @@ else
   let g:vimtex_view_general_options_latexmk = '--unique'
 endif
 
-if has('nvim')
-  let g:vimtex_compiler_progname = 'nvr'
-endif
-
 " Make changing label names easier
 set iskeyword-=:
 set iskeyword-=_
@@ -57,8 +53,7 @@ set tabstop=1
 
 " Disable custom warnings based on regexp
 let g:vimtex_quickfix_ignore_filters = [
-      \ '/tikz/marking',
-      \ 'Cannot patch \\document',
+      \ 'hbox',
       \]
 
 

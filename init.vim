@@ -25,6 +25,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
+Plug 'holomorph/vim-freefem'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
