@@ -26,8 +26,6 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 Plug 'holomorph/vim-freefem'
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Autocomplete stuff, i.e. nvim-cmp
 Plug 'neovim/nvim-lspconfig'
@@ -299,29 +297,6 @@ nnoremap <leader>ca :Gcommit -am ""<Left>
 let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>", "<BS><BS>"]
 
 " }}} 
-
-" {{{ Treesitter
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-  enable = true,
-  disable = {"latex"}},
-
-  incremental_selection = {
-  enable = true,
-  keymaps = {
-    init_selection = "gnn",
-    node_incremental = "grn",
-    scope_incremental = "grc",
-    node_decremental = "grm"}},
-
-  indent = {enable = true}
-}
-EOF
-"lua require("testing")
-
-" }}}
 
 " {{{ UltiSnips
 
